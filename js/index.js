@@ -1,248 +1,5 @@
 'use strict';
 
-/*
- * Базові примітивні типи: number, string, boolean, null і undefined. BigInt, Symbol
- */
-
-// const number = 1;
-// const string = 'asdasd adsdasdasd asdasdas asdasdasd';
-// const bool = true // flase ;
-// const nullVariable = null;
-// const undefined = undefined;
-// const dd = Symbol('aaa'); // укнікальні
-// const dd2 = Symbol('aaa');// укнікальні
-
-/*
- * Вивід данних: console.log та alert. Вкладка Console в Chrome Devtools
- */
-
-// const ff = alert('some string');
-// console.log(ff);
-
-/*
- * Змінні: оголошення з let та const, найменування. Use Strict
- */
-
-// let someSting = 'sdsd';
-// const someSting2 = 'sdsd';
-
-// hey = '22'; // ГРУБА ПОМИЛКА.
-// console.log(hey);
-
-/*
- * Отримання данних: prompt и confirm.
- */
-
-// const promptResult = prompt('Some sting');
-// console.log(promptResult);
-// console.log(typeof promptResult);
-
-// const confirmResult = confirm('Some sting');
-// console.log(confirmResult);
-
-/**
- * Числа и основні оператори: "+" "-" "*" "/" "%" "**"
- */
-
-// ======================= TASKS ===========================
-
-/**
- * TASK 1
- * Є два чила 10 и 20 провести над ними всі математичні операції.
- */
-
-// const number1 = 17;
-// const number2 = 5;
-
-// const result = number1 % number2; // 1
-// console.log('result: ', result);
-/**
- * TASK 2
- * Перевірити чи будуть числа 10, 15, 20, 25 парні та непарні.
- */
-// const result = 10 % 2 ? false : true;
-// console.log('10 % 2: ', result);
-// console.log('15 % 2: ', 15 % 2 ? false : true);
-// console.log('20 % 2: ', 20 % 2 ? false : true);
-// console.log('25 % 2: ', 25 % 2 ? false : true);
-
-/**
- * TASK 3
- * Дано 90 хвилин. Відобразити скільки це годин і скільки хвилин.
- * Записати формат 00:00 (використовуючи padStart())
- */
-// const mins = 90;
-// const hours = parseInt(mins / 60); //1.5
-// const secondPart = mins % 60; // 30
-// console.log((hours + ':' + secondPart).padStart(5, '0'));
-
-// const mins = 61;
-// const newHours = ('' + hours).padStart(2, '0');
-// const newSecondPart = ('' + secondPart).padStart(2, '0');
-// console.log(`${newHours}:${newSecondPart}`);
-
-/**
- * TASK 4
- * Користувач вводить (prompt) значення відстані у форматі "105.5km" та "105,6km".
- * Перетворити значення на числа, з урахування не вірного синтаксису (replace, slice, indexOf)
- */
-
-// let resultPrompt = prompt('Будь ласка введыть відстать у форматі 105.7km');
-// resultPrompt = resultPrompt.replace(',', '.');
-// console.log(resultPrompt);
-// console.log(parseFloat(resultPrompt));
-
-// let resultPrompt = '105,7km';
-// const index = resultPrompt.indexOf(',');
-// const part1 = resultPrompt.slice(0, index);
-// const part2 = resultPrompt.slice(index + 1);
-// const result = `${part1}.${part2}`;
-
-// console.log(parseFloat(result));
-
-// =========================================================================================
-
-/**
- * TASK 5
- * Є строка 24px. Спарсити числове значення.
- * Розрахувати нове значення. Вивести в консоль "нове значеня" + px
- */
-
-// const value = '24px';
-// console.log(parseInt(value) - 8 + 'px');
-
-/*
- * Math.floor, Math.ceil, Math.round, Math.max, Math.min, Math.pow(), Math.random(), Math.sqrt
- */
-
-/*
- * TASK 6
- * Дано число 23.5, Треба округлити його за допомогою Math.floor, Math.ceil, Math.round.
- * Приклади на числах, 23.1, 23.9
- */
-
-// const number = 23.5;
-// console.log('Math.floor: ', Math.floor(number)); // в меньшу сторону.
-// console.log('Math.ceil: ', Math.ceil(number)); //в більшу сторону
-// console.log('Math.round: ', Math.round(number)); // по правилам мат.
-
-// let number2 = 30.3337; //  30.33X
-// console.log(Math.round(number2 * 1000) / 1000);
-
-/*
- * TASK 7
- * Користувач вводить число та ступінь. Вивести результат Math.pow, Math.sqrt
- */
-// const number = Number(prompt('Ваше число'));
-// const pow = Number(prompt('Введіть ступінь'));
-// const result = Math.pow(number, pow); // number**pow
-// const result2 = Math.sqrt(number); // квадратний корінь
-// console.log(result);
-// console.log(result2);
-
-/*
- * Сгенеруйте рандомне число:
- * от 0 до 1;
- * от 10 до 50.
- */
-// const min = 10;
-// const max = 50;
-// const result = Math.floor(min + Math.random() * (max + 1 - min));
-
-// console.log(result);
-// let r = (Math.random() + 1).toString(36);
-// console.log('random: ', r);
-
-/*
- * Конкатенація строк, шаблонні строки
- */
-
-/*
- * TASK 8
- * Користувач вводить ім'я та вік. Вивести в консоль "Вітаю _____, ваш вік ______"
- * Повторити з шаблонною строкою та без.
- */
-// const name = prompt("Введіть ім'я");
-// const age = prompt('Введіть вік');
-// console.log(`Вітаю ${name}, ваш вік ${ageZ}`);
-
-/*
- * TASK 9
- * Користувач вводить ім'я. Ввивести в консоль довжину слова.
- * Превести слово до нижньго регістру, до верхнього регістру.
- * Зробити першу букву заглавною. (str[0] + str.slice())
- */
-// let name = prompt("Введіть ім'я");
-// console.log('Довжину: ', name.length);
-// console.log('до нижньго регістру: ', name.toLowerCase());
-// console.log('до верхнього регістру: ', name.toUpperCase());
-// console.log(name[0].toUpperCase() + name.slice(1).toLowerCase());
-
-/*
- * TASK 10
- * Є строка 'HTML, CSS, JS, PHP, React, Vue, Node.js, C, C++'.
- * Дізнатись чи містить строка: 'JavaScript', чи 'JS ?.
- * Якщо є, знайти індекс початку строки.
- */
-// let languagesStr = 'HTML, CSS, JS, PHP, React, Vue, Node.js, C, C++'.toLowerCase();
-// const subStr = 'js';
-// const isInclude = languagesStr.includes(subStr.toLowerCase());
-// const indexOfSubStr = languagesStr.indexOf(subStr);
-// console.log(indexOfSubStr);
-
-/*
- * TASK 11
- * Є строка строка '24px'. Дізнатись на що закінчуеться строка %, rem, em или px
- */
-// const str = 'HTML, CSS, JS, PHP, React, Vue, Node.js, C, C++';
-// const subStr = '++';
-// console.log(str.endsWith(subStr));
-
-/*
- * TASK 12
- * У нас є строка:
- * 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy'.
- * Замінити всі вхождення dog на monkey.
- */
-// let str = 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?';
-// str = str.replaceAll('dog', 'monkey');
-// console.log(str);
-
-/*
- * Оператори порівняння (<, >, <=, >=, ==, ===, !=, !==)
- */
-
-/*
- * В результаті порівняння буде булеве значення.
- * Строки порівнюються по unicode.
- * При порівнянні строк, строки порівнюються посимвольно.
- * При порівнянні різних типів, операнди приводяться до числа.
- * null не дорівнює нічому окрім себе та undefined.
- * undefined не дорівнює нічому окрім себе та null.
- */
-
-/*
- * Приведення різних типів к числа:
- * true --> 1
- * false --> 0
- * '' --> 0
- * null --> 0
- * undefined --> 0
- */
-
-//* Оператор меньше (<)
-// console.log(2 < 12);
-// console.log(12 < 2);
-// console.log('a' < 'b');
-// console.log('b' < 'a');
-// console.log('A' < 'a');
-// console.log('apple' < 'bananana');
-// console.log('bananana' < 'apple');
-// console.log(true < false);
-// console.log(false < true);
-
-// =====================================================================================================
-
 //* Оператор більше (>)
 // console.log(10 > 20);
 // console.log(20 > 10);
@@ -287,12 +44,13 @@
 //* && - зупиняеться на false
 //* Якщо всы операнди були істенні, поверне останній.
 //* Якщо результат false, зупинеться і поверне результат відповідний до false
-// const result = 4 && null && 'Hello!';
 
-// console.log(result);
+// const result = 8 && null && 'Hello!';
 
 //* || - зупиняэться на true
 //*  Поверне перше значення, що відповідає істені, якщо таких не знайде, то остяннє значення.
+
+// const some =  undefined || 23 || 'string' || null
 
 // const username = prompt('Your name?').trim() || 'Anonymus';
 
@@ -311,12 +69,12 @@
 // console.log(true || 3 || 4);
 // console.log(true || false || 7);
 // console.log(null || 2 || undefined);
-// console.log((1 && null && 2) > 0);
+// console.log((1 && null && 2) > 0); // opr1 > 0 // boolean
 // console.log(null || (2 && 3) || 4);
 
 //? Приведення типів.
 // console.log(2 + 5 + '' + 1 + 0);
-// console.log('' + 1 - 0);
+// console.log('' + 1 - 0); // '1' - 0 // 1 - 0
 // console.log(true + false);
 // console.log(6 / '3');
 // console.log('2' * '3');
@@ -324,6 +82,478 @@
 // console.log('$' + 4 + 5);
 // console.log('4' - 2);
 // console.log('4px' - 2);
+// console.log(typeof NaN);
 // console.log(7 / 0);
+// console.log(typeof Infinity);
 // console.log('  -9  ' + 5);
 // console.log(null + 1);
+
+/*
+ * Розгалуження if
+ */
+
+// if (true) {
+//   const someVariable2 = 'string1';
+//   console.log(someVariable);
+// }
+
+// const condition = confirm('yes or not');
+// if (condition) {
+//   const someVariable2 = 'string';
+//   console.log(someVariable2);
+// } else {
+//   const someVariable2 = 'string2';
+//   console.log(someVariable2);
+// }
+
+// const condition = confirm('yes or not');
+// const condition2 = confirm('yes or not');
+// if (condition && condition2) {
+//   console.log('condition 1');
+// } else if (condition && !condition2) {
+//   console.log('condition 2');
+// } else {
+//   console.log('not correct condition');
+// }
+
+// const num = 3;
+
+// if (num > 5) {
+//   console.log('Hello!');
+// }
+
+/*
+ * TASK 1
+ * Запитати у користувача суму виразу 10 + 15.
+ * Якщо результат буде вірним вивести в лог "That's right"
+ */
+
+// const result = Number(prompt('10 + 15'));
+// if (result === 25) {
+//   console.log("That's right");
+// }
+
+/*
+ * TASK 2
+ * Користувач вводить логін та пароль. Перевірити комбінацію.
+ * Якщо комбінація вірна вивести повідомлення "Wellcome",
+ * інакше "The username or password is incorrect". Зробити валідацію значення.
+ */
+
+// const loginFromBack = 'Anonymous'.toLowerCase();
+// const passwordFromBack = '12345'.toLowerCase();
+
+// const login = prompt('Введіть логін');
+// const password = prompt('Введіть пароль');
+
+// if (
+//   login.toLowerCase() === loginFromBack &&
+//   password.toLowerCase() === passwordFromBack
+// ) {
+//   alert('Wellcome');
+// } else {
+//   alert('The username or password is incorrect');
+// }
+
+/*
+ * TASK 3
+ * В змінній min лежить число від 0 до 59.
+ * Треба вивести до якої чверті часу належить число (в першу, другу, третю чи четверту).
+ * [0 до 15) - перша чверть
+ * [15 до 30) - друга чверть
+ * [30 до 45) - третя чверть
+ * [45 до 60) - четверта чверть
+ */
+
+// const min = 70;
+
+// if (min >= 0 && min < 15) {
+//   console.log('перша чверть');
+// } else if (min >= 15 && min < 30) {
+//   console.log('друга чверть');
+// } else if (min >= 30 && min < 45) {
+//   console.log('третя чверть');
+// } else if (min >= 45 && min < 60) {
+//   console.log('четверта чврть');
+// } else {
+//   console.log('Значення не відповідає діапазону в 1 годину');
+// }
+
+/*
+ * TASK 4
+ * Напишіть код, котрий отримуе число через prompt, та виводить в console.log:
+ * "Більше", якщо значення більше 0,
+ * "Меньше", якщо значення меньше 0,
+ * "Дорівнює", якщо значення дорівнює 0.
+ * Перевірити, що результатом вводу буде число. Зпарсити число, перевірити тип.
+ */
+
+/*
+ * TASK 5
+ * Перевірити яка є default мова браузеру користувача (navigator.language)
+ * Вивести "Укріїнська", "Англійська", "Російська"
+ */
+
+// console.log(window);
+// console.log(navigator);
+
+// const userBrowser = navigator.language;
+// if (userBrowser.includes('ru')) {
+//   console.log('Російська');
+// } else if (userBrowser.includes('en')) {
+//   console.log('Англійська');
+// } else if (userBrowser.includes('ua')) {
+//   console.log('Укріїнська');
+// } else {
+//   console.log('Сайт не має підтримки мови по замовчуванню');
+// }
+
+/*
+ * Switch case
+ */
+
+// switch (значення) {
+//   case значення:
+//     інструкція;
+//     break;
+
+//   case значення:
+//     інструкція;
+//     break;
+
+//   default:
+//     інструкція;
+// }
+
+/*
+ * TASK 6
+ * Переписати попередню задачу з використанням switch:
+ */
+
+// const userBrowser = navigator.language;
+// if (userBrowser.includes('ru')) {
+//   console.log('Російська');
+// } else if (userBrowser.includes('en')) {
+//   console.log('Англійська');
+// } else if (userBrowser.includes('ua')) {
+//   console.log('Укріїнська');
+// } else {
+//   console.log('Сайт не має підтримки мови по замовчуванню');
+// }
+
+// const userBrowser = navigator.language;
+// switch (userBrowser) {
+//   case 'ru-RU':
+//     console.log('Російська');
+//     break;
+//   case 'en-EN':
+//     console.log('Англійська');
+//     break;
+//   case 'ua-UK':
+//     console.log('Укріїнська');
+//     break;
+//   default:
+//     console.log('Сайт не має підтримки мови по замовчуванню');
+//     break;
+// }
+
+/*
+ * Тернарний оператор
+ */
+
+//<умова> ? <вираз якщо вірно> : <вираз якщо не вірно>
+
+/*
+ * TASK 7
+ * Перепишіть конструкцію if с використання умовного оператора '?':
+ */
+// const a = 2;
+// const b = 1;
+// let result;
+// if (a + b < 4) {
+//   result = 'Мало';
+// } else {
+//   result = 'Багато';
+// }
+
+// let result = a + b < 4 ? 'Мало' : 'Багато';
+// console.log(a + b < 4 ? 'Мало' : 'Багато');
+
+/*
+ * TASK 8
+ * Перепишіть if..else з використання послідовно тернарних операторів '?'.
+ */
+
+// const login = 'admin';
+// let message;
+// if (login === 'Працівник') {
+//   message = 'Привіт';
+// } else if (login == 'Директор') {
+//   message = 'Вітаю';
+// } else if (login == '') {
+//   message = 'логін не знайдено';
+// } else {
+//   message = '___';
+// }
+// console.log(message);
+
+// const login = 'Працівник';
+// let message =
+//   login === 'Працівник'
+//     ? 'Привіт'
+//     : login === 'Директор'
+//     ? 'Вітаю'
+//     : login == ''
+//     ? 'логін не знайдено'
+//     : '___';
+
+// console.log(message);
+
+//================ Цикли (while, do while, for) =================
+
+/*
+ * While
+ */
+
+// while (condition) {
+//     //тіло цикла (statement)
+
+//     //умова виходу з циклу.
+// }
+
+// let iterator = 0;
+// iterator = iterator + 1;
+// iterator += 1;
+// iterator++;
+// ++iterator;
+
+// 0 < 5 = true
+// 1 < 5 = true
+// 2 < 5 = true
+// 3 < 5 = true
+// 4 < 5 = true
+// 5 < 5 = false
+
+// while (iterator < 5) {
+//   console.log('Hello!');
+
+//   iterator = iterator + 1;
+// }
+
+/*
+ * TASK 9
+ * Вивести числа від 1 до 50
+ */
+
+// let num = 1;
+
+// while (num <= 50) {
+//   console.log(num);
+
+//   num += 1;
+// }
+
+/*
+ * TASK 10
+ * Знайти сумму чисел від 1 до 100
+ */
+
+// let number = 1;
+// let result = 0;
+
+// while (number <= 100) {
+//   // result = result + number;
+//   result += number;
+//   number += 1;
+// }
+
+// console.log(result);
+
+/*
+ * TASK 11
+ * Дано число n=1000.
+ * Поділити його на 2 стільки разів, щоб результат був меньший за 50
+ * Вивести дане число, вивести кількість ітерацій.
+ */
+
+// let n = 1000;
+// let counter = 0;
+
+// while (n / 2 > 50) {
+//   counter += 1; // 1, 2, 3, 4
+//   // n = n / 2
+//   n /= 2; // 500, 250, 125, 62.5
+// }
+
+// console.log(counter);
+// console.log(n);
+
+/*
+ * Do While
+ */
+// do {
+// statement
+// } while (condition);
+
+/*
+ * TASK 12
+ * Користувач вводить логін та пароль. Перевірити комбінацію.
+ * Якщо комбінація вірна вивести повідомлення "Wellcome",
+ * інакше повторювати процедуру, поки ми не отримаемо вірні значення.
+ * Зробити кількість ітерацій умовою, для виходу із циклу.
+ */
+
+// const loginFromBack = 'user';
+// const passFromBack = '12345';
+// let isLogined;
+// let counter = 0;
+
+// do {
+//     // перевірку на аварыйний виход з циклу. Коли є якась помилка.
+
+//     counter +=1
+//     const login = prompt('Введіть логин');
+//     const password = prompt('Введіть пароль');
+
+//     if(login === loginFromBack && password === passFromBack){
+//         isLogined = true;
+//         alert("Wellcome")
+//     }
+
+// } while (!isLogined && counter < 3);
+
+// let isLogined;
+// let count = 0;
+// do {
+//   if (count > 3) {
+//     break;
+//   }
+//   const login = prompt('Введіть логин');
+//   const password = prompt('Введіть пароль');
+//   if (login === 'user' && password === '12345') {
+//     isLogined = true;
+//     alert('Wellcome');
+//     break;
+//   } else {
+//     alert('The username or password is incorrect');
+//     count += 1;
+//   }
+// } while (!isLogined);
+
+/*
+ * For
+ */
+// for (ініціалізація; умова; пост-вираз) {
+// тело цикла
+// }
+
+// for (let i = 0; i < 10; i += 1) {
+//   console.log(i);
+// }
+
+/*
+ * TASK 13
+ * За допомогою цикла for вивести парны числа від 2 до 10.
+ */
+
+// for (let i = 2; i <= 10; i += 1) {
+//   if (i % 2 !== 0) {
+//     continue;
+//   }
+
+//   console.log(i);
+// }
+
+// for (let i = 0; i < 10; i += 1) {
+//   if (i === 3) {
+//     console.log('Мы нашли 3');
+//     break;
+//   }
+
+//   console.log(i);
+// }
+
+/*
+ * TASK 14
+ * Паписати програму котра виводить в console.log всі числа від 1 до 100, з двома винятками.
+ * для чиcел які діляться на 3, вона повинна виводити ‘Fizz’,
+ * а для чисел, що діляться на 5 – ‘Buzz’.
+ * Для чисел котрі кратні 3 та 5 = 'FizzBuzz'
+ */
+
+// 1 рішення
+// for (let i = 1; i <= 100; i += 1) {
+//   if (i % 3 === 0 && i % 5 === 0) {
+//     console.log('FizzBuzz');
+//   } else if (i % 3 === 0) {
+//     console.log('Fizz');
+//   } else if (i % 5 === 0) {
+//     console.log('Buzz');
+//   } else {
+//     console.log(i);
+//   }
+// }
+
+// 2 рішення
+// for (let i = 1; i <= 100; i += 1) {
+//   if (i % 3 === 0 && i % 5 === 0) {
+//     console.log('FizzBuzz');
+//     continue;
+//   }
+
+//   if (i % 3 === 0) {
+//     console.log('Fizz');
+//     continue;
+//   }
+
+//   if (i % 5 === 0) {
+//     console.log('Buzz');
+//     continue;
+//   }
+
+//   console.log(i);
+// }
+
+// 3 Рішення
+// for (let i = 1; i <= 100; i += 1) {
+//   let str = '';
+
+//   if (i % 3 === 0) {
+//     str += 'Fizz';
+//   }
+
+//   if (i % 5 === 0) {
+//     str += 'Buzz';
+//   }
+
+//   console.log(str || i);
+// }
+
+/*
+ * TASK 15
+ * Вивести методом console.log() решітки від 1 до 7 штук в вигляді трикутника таким чином:
+ * #
+ * ##
+ * ###
+ * ####
+ * #####
+ * ######
+ * #######
+ */
+
+// Рішення 1
+// let star = '#';
+// for (let i = 0; i < 7; i += 1) {
+//   console.log(star);
+//   star += '#';
+// }
+
+// Рішення 2
+for (let i = 0; i < 7; i += 1) {
+  let star = '';
+  for (let j = 0; j <= i; j += 1) {
+    star += '#';
+  }
+  console.log(star);
+}
+
