@@ -1,559 +1,375 @@
-'use strict';
-
-//* Оператор більше (>)
-// console.log(10 > 20);
-// console.log(20 > 10);
-
-//* Оператор меньше чи дорівнює (<=)
-// console.log(5 <= 6);
-// console.log(5 <= 5);
-// console.log(5 <= 4);
-
-//* Оператор більше чи дорівнює (>=)
-// console.log(5 >= 3);
-// console.log(5 >= 5);
-// console.log(3 >= 4);
-
-//* Не строга рівність (==)
-// console.log(null > 0); //false
-// console.log(null == 0); //false
-// console.log(null >= 0); //true
-
-// console.log(undefined == null);
-
-// console.log('123' == 123);
-// console.log(true == '1');
-// console.log(4 == 5);
-
-//* Строга рівність (===)
-// console.log('123' === 123);
-// console.log(null === null);
-// console.log(2 + 2 === 4);
-// console.log(0 === -0);
-
-//* Не дорівнює (!=)
-// console.log('4' != 4);
-
-//* Строго не дорівнює (!==)
-// console.log('4' !== 4);
+// 'use strict';
 
 /*
- * Логические операторы (&& || !)
+ * Массиви: літерал масива, елементы, індексація, довжина
+ * Посилання на статтю, як працює памєять в V8:  https://deepu.tech/memory-management-in-v8/
+ * Arra.prototype: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries
  */
-
-//* && - зупиняеться на false
-//* Якщо всы операнди були істенні, поверне останній.
-//* Якщо результат false, зупинеться і поверне результат відповідний до false
-
-// const result = 8 && null && 'Hello!';
-
-//* || - зупиняэться на true
-//*  Поверне перше значення, що відповідає істені, якщо таких не знайде, то остяннє значення.
-
-// const some =  undefined || 23 || 'string' || null
-
-// const username = prompt('Your name?').trim() || 'Anonymus';
-
-// console.log(`Hello ${username}`);
-
-//* ! - інвертує true -> false та false -> true
-
-// console.log(!1);
-
-//? Логічні оператори
-// console.log(true && 3);
-// console.log(false && 3);
-// console.log(true && 4 && 'kiwi');
-// console.log(true && 0 && 'kiwi');
-// console.log(true || 3);
-// console.log(true || 3 || 4);
-// console.log(true || false || 7);
-// console.log(null || 2 || undefined);
-// console.log((1 && null && 2) > 0); // opr1 > 0 // boolean
-// console.log(null || (2 && 3) || 4);
-
-//? Приведення типів.
-// console.log(2 + 5 + '' + 1 + 0);
-// console.log('' + 1 - 0); // '1' - 0 // 1 - 0
-// console.log(true + false);
-// console.log(6 / '3');
-// console.log('2' * '3');
-// console.log(4 + 5 + 'px');
-// console.log('$' + 4 + 5);
-// console.log('4' - 2);
-// console.log('4px' - 2);
-// console.log(typeof NaN);
-// console.log(7 / 0);
-// console.log(typeof Infinity);
-// console.log('  -9  ' + 5);
-// console.log(null + 1);
-
-/*
- * Розгалуження if
- */
-
-// if (true) {
-//   const someVariable2 = 'string1';
-//   console.log(someVariable);
-// }
-
-// const condition = confirm('yes or not');
-// if (condition) {
-//   const someVariable2 = 'string';
-//   console.log(someVariable2);
-// } else {
-//   const someVariable2 = 'string2';
-//   console.log(someVariable2);
-// }
-
-// const condition = confirm('yes or not');
-// const condition2 = confirm('yes or not');
-// if (condition && condition2) {
-//   console.log('condition 1');
-// } else if (condition && !condition2) {
-//   console.log('condition 2');
-// } else {
-//   console.log('not correct condition');
-// }
-
-// const num = 3;
-
-// if (num > 5) {
-//   console.log('Hello!');
-// }
 
 /*
  * TASK 1
- * Запитати у користувача суму виразу 10 + 15.
- * Якщо результат буде вірним вивести в лог "That's right"
+ * Створіть масив genres з елементами «Jazz» и «Blues».
+ * Додайте «Рок-н-ролл» у коніць.
+ * Виведіть в консоль перший елемент масива.
+ * Виведіть в консоль останній елемент масива. Код повинен працювати для масива довільної довжини.
+ * Видаліть перший елемент та виведіть його в консоль.
+ * Додайте «Country» та «Reggy» на початок масива.
  */
 
-// const result = Number(prompt('10 + 15'));
-// if (result === 25) {
-//   console.log("That's right");
-// }
+// const genres = ['Jazz', 'Blues'];
+
+// // const genres2 = genres; // copy link to genres
+// // const genres2 = [...genres]; // copy array from genres
+
+// genres.push('Rock&Roll');
+// const elem = genres.shift();
+// console.log(elem);
+// genres.unshift('Country', 'Reggy');
+// console.log(genres);
+
+/*
+ * Передача по посиланню та по значенню
+ */
 
 /*
  * TASK 2
- * Користувач вводить логін та пароль. Перевірити комбінацію.
- * Якщо комбінація вірна вивести повідомлення "Wellcome",
- * інакше "The username or password is incorrect". Зробити валідацію значення.
+ * Створіть змінну a = 10.
+ * Створіть та присвойте змінній b -> змінну a
+ * Виведіть в консоль обидві ці змінні
+ * Змініть значення змінної а та ще раз виведіть їх у консоль
  */
 
-// const loginFromBack = 'Anonymous'.toLowerCase();
-// const passwordFromBack = '12345'.toLowerCase();
+// let a = 10;
+// const b = a;
 
-// const login = prompt('Введіть логін');
-// const password = prompt('Введіть пароль');
+// // console.log('a: ', a); // 10
+// // console.log('b: ', b); // 10
 
-// if (
-//   login.toLowerCase() === loginFromBack &&
-//   password.toLowerCase() === passwordFromBack
-// ) {
-//   alert('Wellcome');
-// } else {
-//   alert('The username or password is incorrect');
-// }
+// a = 20;
+
+// console.log('a: ', a); // 20
+// console.log('b: ', b); // 10
+
+// ПРОСТІ ТИПИ ПЕРЕДАЮТЬ ЗНАЧЕННЯ.
+
+/*
+ * TASK 2
+ * Створіть масив arr1 = [1, 2, 3].
+ * Створіть та присвойте масиву arr2 -> масив arr1
+ * Виведіть в консоль обидва ці масиви
+ * Добавте елемент в масив arr1 та ще раз виведіть обидва масива в консоль
+ */
+
+// const arr1 = посілання: [1, 2, 3];
+// const arr2 = arr1 посілання;
+
+// console.log('arr1: ', arr1); // [1, 2, 3]
+// console.log('arr2: ', arr2); // [1, 2, 3]
+
+// arr1.push(10);
+
+// console.log('arr1: ', arr1); // [1, 2, 3, 10]
+// console.log('arr2: ', arr2); // [1, 2, 3, 10]
+
+/*
+ * Перебір масива циклами for та for...of
+ */
 
 /*
  * TASK 3
- * В змінній min лежить число від 0 до 59.
- * Треба вивести до якої чверті часу належить число (в першу, другу, третю чи четверту).
- * [0 до 15) - перша чверть
- * [15 до 30) - друга чверть
- * [30 до 45) - третя чверть
- * [45 до 60) - четверта чверть
+ * Напишіть скрипт для перебору масива fruits циклом for.
+ * Для кажного елемента массива виведи в консоль строку в форматі номер_елемента: значення_елемента.
+ * Нумерация элементов должна начинаться с 1.
  */
 
-// const min = 70;
+// const fruits = ['🍎', '🍇', '🍑', '🍌', '🍋'];
 
-// if (min >= 0 && min < 15) {
-//   console.log('перша чверть');
-// } else if (min >= 15 && min < 30) {
-//   console.log('друга чверть');
-// } else if (min >= 30 && min < 45) {
-//   console.log('третя чверть');
-// } else if (min >= 45 && min < 60) {
-//   console.log('четверта чврть');
-// } else {
-//   console.log('Значення не відповідає діапазону в 1 годину');
+// for (let index = 0; index < fruits.length; index += 1) {
+//   console.log(`${index + 1}: ${fruits[index]}`);
+// }
+
+// for (const fruit of fruits) {
+//   console.log(fruit);
 // }
 
 /*
  * TASK 4
- * Напишіть код, котрий отримуе число через prompt, та виводить в console.log:
- * "Більше", якщо значення більше 0,
- * "Меньше", якщо значення меньше 0,
- * "Дорівнює", якщо значення дорівнює 0.
- * Перевірити, що результатом вводу буде число. Зпарсити число, перевірити тип.
+ * Напишіть скрипт для перебору масива fruits циклом for.. of.
+ * Для кажного елемента массива виведыть в консоль:
+ *  1. індекс
+ *  2. індекс + значення.
+ *  Використовувати методи keys та entries
  */
+
+// const fruits = ['🍎', '🍇', '🍑', '🍌', '🍋'];
+
+// for (const index of fruits.keys()) {
+//   console.log(index);
+// }
+
+// for (const [index, value] of fruits.entries()) {
+//   console.log(index, value);
+// }
+
+// for (const value of fruits.values()) {
+//   console.log(value);
+// }
 
 /*
  * TASK 5
- * Перевірити яка є default мова браузеру користувача (navigator.language)
- * Вивести "Укріїнська", "Англійська", "Російська"
+ * Напишіть скрипт пошука самого маленького числа в масиві.
+ * Код повинен працювати для довільного масива чисел.
+ * Використовуючи цикл.
  */
 
-// console.log(window);
-// console.log(navigator);
+// const numbers = [2, 17, 94, 1, -20, -1, 23, 37];
+// let min = numbers[0];
 
-// const userBrowser = navigator.language;
-// if (userBrowser.includes('ru')) {
-//   console.log('Російська');
-// } else if (userBrowser.includes('en')) {
-//   console.log('Англійська');
-// } else if (userBrowser.includes('ua')) {
-//   console.log('Укріїнська');
-// } else {
-//   console.log('Сайт не має підтримки мови по замовчуванню');
+// 1 Варіант рішення
+// for (let i = 0; i < numbers.length; i += 1) {
+//   console.group();
+//   console.log('i: ', i);
+//   console.log('min: ', min);
+//   console.log('numbers: ', numbers[i]);
+//   if (numbers[i] < min) {
+//     min = numbers[i];
+//     console.log(true);
+//   }
+//   console.groupEnd();
 // }
 
-/*
- * Switch case
- */
-
-// switch (значення) {
-//   case значення:
-//     інструкція;
-//     break;
-
-//   case значення:
-//     інструкція;
-//     break;
-
-//   default:
-//     інструкція;
+// 2 Варіант рішення
+// for (const number of numbers) {
+//   if (number < min) {
+//     min = number;
+//   }
 // }
+
+// console.log(min);
 
 /*
  * TASK 6
- * Переписати попередню задачу з використанням switch:
+ * В нас є масив з зарплатами співробітників, треба порахувати загальну сумму зарплат
  */
 
-// const userBrowser = navigator.language;
-// if (userBrowser.includes('ru')) {
-//   console.log('Російська');
-// } else if (userBrowser.includes('en')) {
-//   console.log('Англійська');
-// } else if (userBrowser.includes('ua')) {
-//   console.log('Укріїнська');
-// } else {
-//   console.log('Сайт не має підтримки мови по замовчуванню');
+// const salaries = [200, 450, 600, 150, 300];
+// let total = 0;
+
+// 1 Варіант рішення
+// for (let i = 0; i < salaries.length; i += 1) {
+//   total += salaries[i];
+//   console.log(total);
 // }
 
-// const userBrowser = navigator.language;
-// switch (userBrowser) {
-//   case 'ru-RU':
-//     console.log('Російська');
-//     break;
-//   case 'en-EN':
-//     console.log('Англійська');
-//     break;
-//   case 'ua-UK':
-//     console.log('Укріїнська');
-//     break;
-//   default:
-//     console.log('Сайт не має підтримки мови по замовчуванню');
-//     break;
+// 2 Варіант рішення
+// for (const salary of salaries) {
+//   total += salary;
 // }
 
-/*
- * Тернарний оператор
- */
-
-//<умова> ? <вираз якщо вірно> : <вираз якщо не вірно>
+// console.log(total);
 
 /*
  * TASK 7
- * Перепишіть конструкцію if с використання умовного оператора '?':
+ * В нас є декілька масивів з зарплатами співробітників з різних відділів,
+ *  треба порахувати загальну сумму зарплат.
  */
-// const a = 2;
-// const b = 1;
-// let result;
-// if (a + b < 4) {
-//   result = 'Мало';
-// } else {
-//   result = 'Багато';
+
+// const managerSalaries = [100, 150, 250, 400, 500];
+// const developersSalaries = [800, 1500, 4000];
+// let total = 0;
+
+// 1 Варіант рішення
+// for (const managerSalary of managerSalaries) {
+//   total += managerSalary;
+//   console.log('managerSalaries: ', total);
 // }
 
-// let result = a + b < 4 ? 'Мало' : 'Багато';
-// console.log(a + b < 4 ? 'Мало' : 'Багато');
+// for (const developerSalary of developersSalaries) {
+//   total += developerSalary;
+//   console.log('developersSalaries: ', total);
+// }
+
+// console.log(total);
+
+// 2 Варіант рішення
+// const salaries = [];
+
+// for (const managerSalary of managerSalaries) {
+//   salaries.push(managerSalary);
+// }
+
+// for (const developerSalary of developersSalaries) {
+//   salaries.push(developerSalary);
+// }
+
+// for (const salary of salaries) {
+//   total += salary;
+// }
+
+// console.log(total);
+
+// 3 Варіант рішення
+// const allSalaries = [].concat(managerSalaries, developersSalaries);
+// const allSalaries = managerSalaries.concat(developersSalaries);
+// const allSalaries = [...managerSalaries, ...developersSalaries];
+
+// for (const salary of allSalaries) {
+//   total += salary;
+// }
+
+// console.log(total);
 
 /*
  * TASK 8
- * Перепишіть if..else з використання послідовно тернарних операторів '?'.
+ * В нас є масив масивів з зарплатами співробітників з різних відділів, треба порахувати загальну сумму зарплат.
  */
+// const salaries = [
+//   [1000, 1200, 1100, 900, 940, 600, 1000, 900],
+//   [1000, 1400, 1500, 1200, 1940, 700],
+//   [1030, 1300, 1900, 800, 3940],
+//   [1000, 1200, 1100, 1900, 240, 600],
+//   [1020, 1200, 1100, 900, 1400, 400],
+//   [1200, 1200, 1100, 900, 950, 1000, 3500],
+//   [1040, 1200, 1100, 900, 800],
+// ];
 
-// const login = 'admin';
-// let message;
-// if (login === 'Працівник') {
-//   message = 'Привіт';
-// } else if (login == 'Директор') {
-//   message = 'Вітаю';
-// } else if (login == '') {
-//   message = 'логін не знайдено';
-// } else {
-//   message = '___';
-// }
-// console.log(message);
+// let total = 0;
 
-// const login = 'Працівник';
-// let message =
-//   login === 'Працівник'
-//     ? 'Привіт'
-//     : login === 'Директор'
-//     ? 'Вітаю'
-//     : login == ''
-//     ? 'логін не знайдено'
-//     : '___';
-
-// console.log(message);
-
-//================ Цикли (while, do while, for) =================
-
-/*
- * While
- */
-
-// while (condition) {
-//     //тіло цикла (statement)
-
-//     //умова виходу з циклу.
+// for (const department of salaries) {
+//   for (const salary of department) {
+//     total += salary;
+//   }
 // }
 
-// let iterator = 0;
-// iterator = iterator + 1;
-// iterator += 1;
-// iterator++;
-// ++iterator;
+// console.log(total);
 
-// 0 < 5 = true
-// 1 < 5 = true
-// 2 < 5 = true
-// 3 < 5 = true
-// 4 < 5 = true
-// 5 < 5 = false
+// const result = [];
 
-// while (iterator < 5) {
-//   console.log('Hello!');
-
-//   iterator = iterator + 1;
-// }
-
-/*
- * TASK 9
- * Вивести числа від 1 до 50
- */
-
-// let num = 1;
-
-// while (num <= 50) {
-//   console.log(num);
-
-//   num += 1;
-// }
-
-/*
- * TASK 10
- * Знайти сумму чисел від 1 до 100
- */
-
-// let number = 1;
-// let result = 0;
-
-// while (number <= 100) {
-//   // result = result + number;
-//   result += number;
-//   number += 1;
+// for (const department of salaries) {
+//   let total = 0;
+//   for (const salary of department) {
+//     total += salary;
+//   }
+//   result.push(total);
 // }
 
 // console.log(result);
 
 /*
- * TASK 11
- * Дано число n=1000.
- * Поділити його на 2 стільки разів, щоб результат був меньший за 50
- * Вивести дане число, вивести кількість ітерацій.
+ * Базові методи: split и join, indexOf и includes, push, slice и splice, concat
  */
-
-// let n = 1000;
-// let counter = 0;
-
-// while (n / 2 > 50) {
-//   counter += 1; // 1, 2, 3, 4
-//   // n = n / 2
-//   n /= 2; // 500, 250, 125, 62.5
-// }
-
-// console.log(counter);
-// console.log(n);
 
 /*
- * Do While
+ * TASK 9**
+ * Напишіть скрипт який буде шукати значення кількості товарів на скаді з строки:
+ * We found 1243 products in 18 categories by your request.
  */
-// do {
-// statement
-// } while (condition);
+
+// const string = 'We found 1243 products in 18 categories by your request.';
+// const string = 'We found 180 categories and 124302 products by your request.';
+// const array = string.split(' ');
+// // console.log(array);
+// for (let i = 0; i < array.length; i += 1) {
+//   let current = Number(array[i]);
+//   //   console.log(current);
+//   if (current) {
+//     // console.log(true);
+//     if (array[i + 1] === 'products') {
+//       console.log(current);
+//     }
+//   }
+// }
+
+/*
+ * TASK 10
+ * Напишіть скрипт який виводить в консоль ім'я та телефонний номер користувача.
+ * В змінних names и phones зберігаються строки імен та телефонних номерів, розділені комами.
+ */
+
+// const names = 'Jacob,William,Solomon,Artemis';
+// const namesArr = names.split(',');
+// const phones = '89001234567,89001112233,890055566377,890055566300';
+// const phonesArr = phones.split(',');
+
+// console.log(namesArr);
+// console.log(phonesArr);
+
+// for (let i = 0; i < namesArr.length; i += 1) {
+//   console.log(`${namesArr[i]}: ${phonesArr[i]}`);
+// }
+
+/*
+ * TASK 11
+ * Напишіть скрипт який повертає строку у зворотньому порядку.
+ * Та виводить її в консоль.
+ */
+
+// 1 Варіант рішення
+// const string = 'Welcome to the future';
+// const charsArr = string.split('');
+// // console.log(charsArr);
+// const reverseCharsArr = [];
+
+// for (let i = charsArr.length - 1; i >= 0; i -= 1) {
+//   //   console.log(i);
+//   reverseCharsArr.push(charsArr[i]);
+// }
+// console.log(reverseCharsArr);
+// console.log(reverseCharsArr.join(''));
+
+// 2 Варіант рішення
+// const string = 'Welcome to the future';
+// let reverseStr = '';
+
+// for (let i = string.length - 1; i >= 0; i -= 1) {
+//   reverseStr += string[i];
+// }
+
+// console.log(reverseStr);
 
 /*
  * TASK 12
- * Користувач вводить логін та пароль. Перевірити комбінацію.
- * Якщо комбінація вірна вивести повідомлення "Wellcome",
- * інакше повторювати процедуру, поки ми не отримаемо вірні значення.
- * Зробити кількість ітерацій умовою, для виходу із циклу.
+ * В нас є масив співробітників, відсортируйте його так, щоб співробітники не повторювались
  */
 
-// const loginFromBack = 'user';
-// const passFromBack = '12345';
-// let isLogined;
-// let counter = 0;
+// const employees = ['Dennis', 'Shaw', 'Watkins', 'Ray', 'Shaw', 'Watkins'];
+// const filteredEmployees = [];
 
-// do {
-//     // перевірку на аварыйний виход з циклу. Коли є якась помилка.
+// 0 === 0
+// 1 === 1
+// 2 === 2
+// 3 === 3
+// 1 === 4
+// 3 === 5
 
-//     counter +=1
-//     const login = prompt('Введіть логин');
-//     const password = prompt('Введіть пароль');
-
-//     if(login === loginFromBack && password === passFromBack){
-//         isLogined = true;
-//         alert("Wellcome")
-//     }
-
-// } while (!isLogined && counter < 3);
-
-// let isLogined;
-// let count = 0;
-// do {
-//   if (count > 3) {
-//     break;
-//   }
-//   const login = prompt('Введіть логин');
-//   const password = prompt('Введіть пароль');
-//   if (login === 'user' && password === '12345') {
-//     isLogined = true;
-//     alert('Wellcome');
-//     break;
-//   } else {
-//     alert('The username or password is incorrect');
-//     count += 1;
-//   }
-// } while (!isLogined);
-
-/*
- * For
- */
-// for (ініціалізація; умова; пост-вираз) {
-// тело цикла
-// }
-
-// for (let i = 0; i < 10; i += 1) {
-//   console.log(i);
-// }
-
-/*
- * TASK 13
- * За допомогою цикла for вивести парны числа від 2 до 10.
- */
-
-// for (let i = 2; i <= 10; i += 1) {
-//   if (i % 2 !== 0) {
-//     continue;
-//   }
-
-//   console.log(i);
-// }
-
-// for (let i = 0; i < 10; i += 1) {
-//   if (i === 3) {
-//     console.log('Мы нашли 3');
-//     break;
-//   }
-
-//   console.log(i);
-// }
-
-/*
- * TASK 14
- * Паписати програму котра виводить в console.log всі числа від 1 до 100, з двома винятками.
- * для чиcел які діляться на 3, вона повинна виводити ‘Fizz’,
- * а для чисел, що діляться на 5 – ‘Buzz’.
- * Для чисел котрі кратні 3 та 5 = 'FizzBuzz'
- */
-
-// 1 рішення
-// for (let i = 1; i <= 100; i += 1) {
-//   if (i % 3 === 0 && i % 5 === 0) {
-//     console.log('FizzBuzz');
-//   } else if (i % 3 === 0) {
-//     console.log('Fizz');
-//   } else if (i % 5 === 0) {
-//     console.log('Buzz');
-//   } else {
-//     console.log(i);
+// for (let i = 0; i < employees.length; i += 1) {
+//   //   console.log('index current elem: ', employees.indexOf(employees[i]));
+//   //   console.log('current index:', i);
+//   if (employees.indexOf(employees[i]) === i) {
+//     filteredEmployees.push(employees[i]);
 //   }
 // }
 
-// 2 рішення
-// for (let i = 1; i <= 100; i += 1) {
-//   if (i % 3 === 0 && i % 5 === 0) {
-//     console.log('FizzBuzz');
-//     continue;
-//   }
+// console.log(filteredEmployees);
 
-//   if (i % 3 === 0) {
-//     console.log('Fizz');
-//     continue;
-//   }
+// // //* Array.prototype.splice: https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+// // //* Cпівробітник Shaw звільнився, видалити його з масива
+// const indexOfRemovedElement = filteredEmployees.indexOf('Shaw');
+// filteredEmployees.splice(indexOfRemovedElement, 1);
 
-//   if (i % 5 === 0) {
-//     console.log('Buzz');
-//     continue;
-//   }
+// console.log(filteredEmployees);
 
-//   console.log(i);
-// }
+// // //? Додайте нового Cпівробітника Jhonson, перед Watkins;
+// const indexOfWatkins = filteredEmployees.indexOf('Watkins');
+// filteredEmployees.splice(indexOfWatkins, 1, 'Thornton');//замінить
+// filteredEmployees.splice(indexOfWatkins, 0, 'Thornton');//добаве
 
-// 3 Рішення
-// for (let i = 1; i <= 100; i += 1) {
-//   let str = '';
+// console.log(filteredEmployees);
 
-//   if (i % 3 === 0) {
-//     str += 'Fizz';
-//   }
+// аналогія replace
+// const title = 'Title 1'.split(' ').join('-'); // Title-1
+// console.log(title);
 
-//   if (i % 5 === 0) {
-//     str += 'Buzz';
-//   }
-
-//   console.log(str || i);
-// }
-
-/*
- * TASK 15
- * Вивести методом console.log() решітки від 1 до 7 штук в вигляді трикутника таким чином:
- * #
- * ##
- * ###
- * ####
- * #####
- * ######
- * #######
- */
-
-// Рішення 1
-// let star = '#';
-// for (let i = 0; i < 7; i += 1) {
-//   console.log(star);
-//   star += '#';
-// }
-
-// Рішення 2
-for (let i = 0; i < 7; i += 1) {
-  let star = '';
-  for (let j = 0; j <= i; j += 1) {
-    star += '#';
-  }
-  console.log(star);
-}
-
+// аналогія concat
+// console.log([2, 4, 6].concat([1, 3], [5], [1, 2, 3, 4]));
+// console.log([...[2, 4, 6], ...[1, 3], ...[5], ...[1, 2, 3, 4]]);
