@@ -110,8 +110,7 @@ const initData = [
 // console.log(initData);
 function main() {
   initData.forEach(item => shop.addItemsToWarehouse(item));
-
-  console.log(shop.getItemsFromWarehouse());
+  // console.log(shop.getItemsFromWarehouse());
   // console.log(shop.filterItemFromWarehouse('tech'));
   // console.log(shop.filterItemFromWarehouse('house'));
   // console.log(shop.filterItemFromWarehouse('NoteBook K11'));
@@ -120,9 +119,11 @@ function main() {
   // console.log(shop.filterItemFromWarehouse('NoteBook K3'));
 
   // shop.changeItemNameFromWarehouse(shop.getRandomItemId(), 'Abrekadabra');
-  shop.changeAnyFieldItemFromWarehouse(shop.getRandomItemId(), 'qualit', 'A');
-  shop.changeAnyFieldItemFromWarehouse(shop.getRandomItemId(), 'price', 10000);
-  console.log(shop.getItemsFromWarehouse());
+  // shop.changeAnyFieldItemFromWarehouse(shop.getRandomItemId(), 'qualit', 'A');
+  // shop.changeAnyFieldItemFromWarehouse(shop.getRandomItemId(), 'price', 10000);
+  // console.log(shop.getItemsFromWarehouse());
+
+  console.log(shop.getRandomItemId());
 }
 const shop = {
   warehouse: [],
@@ -130,6 +131,17 @@ const shop = {
     return this.warehouse;
   },
   getRandomItemId() {
+    // const warehouseLength = this.warehouse.length; // max
+    // const randomFloat = Math.random() * (warehouseLength - 0) + 0;
+    // const randomIndex = Math.floor(randomFloat);
+    // const itemByIndex = this.warehouse[randomIndex];
+
+    // console.log('warehouseLength: ', warehouseLength);
+    // console.log('randomFloat: ', randomFloat);
+    // console.log('randomIndex: ', randomIndex);
+    // console.log('itemByIndex: ', itemByIndex);
+    // return this.warehouse[randomIndex].id;
+
     return this.warehouse[
       Math.floor(Math.random() * (this.warehouse.length - 0) + 0)
     ].id;
