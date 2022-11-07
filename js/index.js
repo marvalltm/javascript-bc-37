@@ -1,42 +1,29 @@
 'use strict';
 
-/*
- * Example 1
- * Операция spread как замена concat и slice
- */
+// const user = {
+//   email: 'example@domain.com',
+//   ddd: 'Jhon',
+//   age: 25,
+// };
 
-/*
- * Копія массива
- */
-// const numbers = [1, 2, 3, 4, 5];
+// const { email, age } = user;
 
-// const numbers2 = [...numbers];
+// user: {
+//   email, age;
+// }
 
-// console.log('numbers: ', numbers);
-// console.log('numbers2: ', numbers2);
+// const email = user.email;
+// const name = user.name;
+// const age = user.age;
 
-// numbers2[0] = 10;
+// console.log(user, name, age);
+// console.log('returns: ', name);
 
-// console.log('numbers: ', numbers);
-// console.log('numbers2: ', numbers2);
+// const user2 = {
+//   ...user,
+// };
 
-/*
- * Об'єднання масивів
- */
-
-// const numbers = [1, 2, 3, 4, 5];
-// const numbers2 = [10, 9, 8, 7];
-// const allNumbers = [...numbers, ...numbers2];
-
-// console.log(allNumbers);
-
-/*
- * Розпилення масива в функцію
- */
-
-// const numbers = [1, 2, 3, 4, 5];
-
-// console.log(Math.max(...numbers));
+// console.log(user2);
 
 /*
  * Операція spread как замена Object.assign({}, ...sources)
@@ -69,8 +56,9 @@
 //   someArr: [1, 2, 3, 4],
 // };
 
-// const user2 = { ...user };
-// const user2 = _.cloneDeep(user);
+// // // const user2 = { ...user };
+// // const user2 = _.cloneDeep(user);
+// const user2 = JSON.parse(JSON.stringify(user));
 
 // console.log('user: ', user);
 // console.log('user2: ', user2);
@@ -83,10 +71,6 @@
 /*
  * Example 2
  * Операция rest
- */
-
-/*
- * Напишіть функцію sum, котра суммує будь яку кілкість аргументів
  */
 
 /*
@@ -111,11 +95,27 @@
  * для властивості isAdmin присвоіть до змінної isAdmin (false, якщо не має такого значення)
  */
 
+// let { firstName, age: userAge, isAdmin = false } = user; //можемо змынювати.
 // const { firstName, age: userAge, isAdmin = false } = user;
 
+// 1. const { firstName } = user;
+// 2. const { age: userAge } = user; //const userAge = user.age
+// 3. const { isAdmin = false } = user;
+
+// let isAdmin = false;
+// isAdmin = user.isAdmin ? user.isAdmin : isAdmin;
+// firstName = 'sdfsdfsdf';
 // console.log('firstName: ', firstName);
 // console.log('userAge: ', userAge);
 // console.log('isAdmin: ', isAdmin);
+// console.log(user);
+
+// const app = {};
+// app.lastTime = new Date();
+// console.log(app);
+
+// let lastTime = app.lastTime;
+// let { lastTime } = app;
 
 /*
  * Більш глибока деструктурізація об'єктів
@@ -132,7 +132,9 @@
 // };
 
 // const { number, flag, employees, langs } = team;
-// const { original: originalLang, secondary: secondaryLang } = langs;
+// console.log(langs);
+// const { original, secondary } = langs;
+// console.log(original, secondary);
 
 // const {
 //   number,
@@ -144,15 +146,59 @@
 // console.log('number: ', number);
 // console.log('flag: ', flag);
 // console.log('employees: ', employees);
-// console.log('originalLang: ', originalLang);
-// console.log('secondaryLang: ', secondaryLang);
+// console.log('originalLang: ', original);
+// console.log('secondaryLang: ', secondary);
 
 /*
  * Деструктурізація масивів
  */
 
+/*
+ * Example 1
+ * Операция spread как замена concat и slice
+ */
+
+/*
+ * Копія массива
+ */
+// const numbers = [1, 2, 3, 4];
+//0: 1
+//1: 2
+//3: 3
+
+// const numbers2 = [...numbers];
+
+// console.log('numbers: ', numbers);
+// console.log('numbers2: ', numbers2);
+
+// numbers2[0] = 10;
+
+// console.log('numbers: ', numbers);
+// console.log('numbers2: ', numbers2);
+
+/*
+ * Об'єднання масивів
+ */
+
+// const numbers = [1, 2, 3, 4, 5];
+// const numbers2 = [10, 9, 8, 7];
+// const allNumbers = [600, ...numbers, 400, ...numbers2, 300];
+
+// console.log(allNumbers);
+
+/*
+ * Розпилення масива в функцію
+ */
+
+// const numbers = [1, 2, 3, 4, 5];
+
+// console.log(Math.max(...numbers));
+
 // const names = ['Herbert Todd', 'Belle Soto', 'Roger Marsh', 'Ethan Lindsey'];
 // const [user1, , user2] = names;
+// const user1 = names[0];
+// const user2 = names[2];
+// console.log(user1, user2);
 
 // const rgb = [0, 255, 34];
 // const [red, green, blue] = rgb;
@@ -160,3 +206,19 @@
 // console.log('red: ', red);
 // console.log('green: ', green);
 // console.log('blue: ', blue);
+
+/*
+ * Напишіть функцію sum, котра суммує будь яку кілкість аргументів
+ */
+// function sum(...args) {
+//     console.log(args);
+//   }
+
+function sum(...numbers) {
+  let total = 0;
+  for (const value of numbers) {
+    total += value;
+  }
+  return total;
+}
+console.log(sum(1, 2, 3, 4, 5, 6));

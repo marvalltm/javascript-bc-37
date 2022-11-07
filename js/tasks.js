@@ -1,22 +1,37 @@
 /*
  * TASK 1
  * В нас є об'ект salaries з зарплатами:
- * Створіть функцію topSalary(salaries), котра поврне ім'я працівника з самою високою зп.
+ * Створіть функцію topSalary(salaries), котра поврне ім'я
+ * працівника з самою високою зп.
  *
  * Якщо об'ект salaries пустий, то треба повернути null.
- * Якщо в нас декідка працівників мають саму високу зп, повернути одного з них.
- * P.S. Використати Object.entries и деструктурізації, щоб перебрати пари ключ/значення.
+ * Якщо в нас декідка працівників мають саму високу зп,
+ * повернути одного з них.
+ * P.S. Використати Object.entries и деструктурізації,
+ * щоб перебрати пари ключ/значення.
  */
 
-// const salaries = {
-//   John: 100,
-//   Pete: 300,
-//   Mary: 250,
+// const salaries = {};
+
+// const topSalary = function (salaries) {
+//   let maxNumber = 0;
+//   let name = null;
+//   for (const [workerName, salary] of Object.entries(salaries)) {
+//     if (maxNumber < salary) {
+//       maxNumber = salary;
+//       name = workerName;
+//     }
+//   }
+//   return name;
 // };
+
+// console.log(topSalary(salaries));
 
 /*
  * TASK 2
- * Напиши функцію getStockReport(companyName, stock), щоб вона приймала об'єкт параметрів звластивостями companyName та stock и виводила репорт
+ * Напиши функцію getStockReport(companyName, stock),
+ * щоб вона приймала об'єкт параметрів звластивостями
+ * companyName та stock и виводила репорт
  * о кількості товарів на складі будь якої компаніі.
  */
 
@@ -27,9 +42,7 @@
 //   } = obj;
 
 //   let totalItems = 0;
-//   const stockItemsValues = Object.values(stockItems);
-
-//   for (const value of stockItemsValues) {
+//   for (const value of Object.values(stockItems)) {
 //     totalItems += value;
 //   }
 
@@ -60,12 +73,14 @@
 /*
  * TASK 3
  * Напиши функцію createContact(partialContact) так,
- * щоб вона повертала новий об'єкт контакта с доданими властивостями id та createdAt,
- * а також list з значенням "default" якщо в partialContact не має таклї властивості.
+ * щоб вона повертала новий об'єкт контакта с доданими властивостями id
+ * та createdAt,
+ * а також list з значенням "default" якщо в partialContact
+ * не має такої властивості.
  */
 
 // const generateId = function () {
-//   return '_' + Math.random().toString(36).substr(2, 9);
+//   return '_' + Math.random().toString(36).slice(2, 9);
 // };
 
 // const createContact = function (partialContact) {
@@ -94,11 +109,17 @@
 
 /*
  * TASK 4
- * Напиши функцію transformUsername(user) так, щоб вона повертала новый об'єект з властивостями fullName, на основі firstName та lastName.
+ * Напиши функцію transformUsername(user) так,
+ * щоб вона повертала новый об'єект з властивостями fullName,
+ * на основі firstName та lastName.
  */
 
 // const transformUsername = function (user) {
+//   //   console.log(user);
 //   const { firstName, lastName, ...otherProps } = user;
+//   //   console.log(firstName);
+//   //   console.log(lastName);
+//   //   console.log(otherProps);
 
 //   return {
 //     fullName: `${firstName} ${lastName}`,
