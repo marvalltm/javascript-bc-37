@@ -8,60 +8,42 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="root">
-      <!-- sdfsdfs -->
-      <h1 class="title" id="title">DOM. Работа с DOM</h1>
-      <div class="wrapper">
-        <img
-          id="baseImage"
-          class="base__image"
-          title="random image"
-          src="https://picsum.photos/200/300"
-          alt="image"
-        />
-        <ul class="list" id="list">
-          <li class="list__item">Some Text Content</li>
-          <!-- sdfsdfs -->
-          <li class="list__item">Some Text Content</li>
-          <li class="list__item">Some Text Content</li>
-          <!-- sdfsdfs -->
-          <li class="list__item">Some Text Content</li>
-          <li class="list__item">Some Text Content</li>
-          <li class="list__item">Some Text Content</li>
-        </ul>
-        <div class="controls">
-          <button class="action">Some Action</button>
-          <button class="action openModal">Open Modal</button>
-        </div>
-      </div>
-      <ul class="root__list" id="rootList">
-        <li class="gallery-item">
-          <a href="#">
-            <img src="" alt="Labrador" width="" height="">
-            <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Non laudantium nostrum, aliquid impedit sit repellendus neque minima
-                  
-            </p>
-          </a>
-        </li>
-      </ul>
+    <img class="image" src="" alt="some" width="200" height="300" />
+    <div class="controls">
+      <button class="action js-main-action">Main Action</button>
+      <button class="action js-sub-action">Sub Action</button>
     </div>
+
+    <form action="" class="form">
+      <label for="name" class="label"
+        ><input id="name" type="text" class="input"
+      /></label>
+      <label for="email" class="label"
+        ><input id="email" type="text" class="input"
+      /></label>
+      <label for="select" class="label"
+        ><select id="select" type="text" class="select">
+          <option value="0">Select pls</option>
+          <option value="1">some 1</option>
+          <option value="2">some 2</option>
+          <option value="3">some 3</option>
+        </select>
+      </label>
+      <button type="submit" class="action js-form-action">Submit</button>
+    </form>
 
     <div class="modal hidden">
       <div class="overflow">
         <div class="content">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
-            laudantium nostrum, aliquid impedit sit repellendus neque minima
-            repudiandae nulla sed dolorem dolore corporis consectetur quam magni
-            vel numquam. Ipsam, ut?
+          <p class="description">
+            Loremakl fjl;askfl;aslfkasf ask sl;kaf fasdasda asdasdas asd ad ad
+            asddddda sd asd asd asd ;
           </p>
-          <button class="action closeModal">close</button>
+          <button class="action js-close-modal">close</button>
         </div>
       </div>
     </div>
-    <script src="./js/items.js"></script>
+
     <script src="./js/index.js"></script>
-    <!-- <script src="./js/game.js"></script> -->
   </body>
 </html>
