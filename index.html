@@ -8,42 +8,32 @@
     <title>Document</title>
   </head>
   <body>
-    <img class="image" src="" alt="some" width="200" height="300" />
-    <div class="controls">
-      <button class="action js-main-action">Main Action</button>
-      <button class="action js-sub-action">Sub Action</button>
-    </div>
-
-    <form action="" class="form">
-      <label for="name" class="label"
-        ><input id="name" type="text" class="input"
-      /></label>
-      <label for="email" class="label"
-        ><input id="email" type="text" class="input"
-      /></label>
-      <label for="select" class="label"
-        ><select id="select" type="text" class="select">
-          <option value="0">Select pls</option>
-          <option value="1">some 1</option>
-          <option value="2">some 2</option>
-          <option value="3">some 3</option>
-        </select>
-      </label>
-      <button type="submit" class="action js-form-action">Submit</button>
-    </form>
-
-    <div class="modal hidden">
-      <div class="overflow">
-        <div class="content">
-          <p class="description">
-            Loremakl fjl;askfl;aslfkasf ask sl;kaf fasdasda asdasdas asd ad ad
-            asddddda sd asd asd asd ;
-          </p>
-          <button class="action js-close-modal">close</button>
-        </div>
+    <section class="section">
+      <span class="text">section</span>
+      <div class="div">
+        <span class="text">div</span>
+        <p class="description">
+          <span class="text">description</span>
+          <button class="action">Action</button>
+        </p>
       </div>
-    </div>
-
+    </section>
+    <form action="" class="form">
+      <label for="email" class="label"
+        ><input
+          type="text"
+          class="input"
+          id="email"
+          placeholder="Email" /></label
+      ><button type="submit" class="action">Send</button>
+    </form>
+    <div class="calendar" data-index="calendar"></div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"
+      integrity="sha512-O2Y8hD83PQtRf8vcr0N+yxwRtErIVaHJ4NOpojzq2yvUmhiJbQIT9OAYu27t+mVk814t+ongBVGx+YGylICVkQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="./js/index.js"></script>
   </body>
 </html>

@@ -1,190 +1,213 @@
 'use strict';
 /**
  *  ================ Example 1 ==================
- * Створення видалння слухачів подій.
- * Створити референс до наших кнопок. На одну з повісити зміну картинки.
- * До іншої відалення слухача.
- *
- * `https://picsum.photos/id/${Math.floor(Math.random() * 1000)}/200/300`
- *
- * Розширити функціол, вробити кнопку вимкненою, якщо на ній не має слухача.
- * На sub повісити функціонал який буде дотавати слухачі чи видаляти з main button
+ * Поширення подій. Спливання подій. stopPropogation
+ * Event.target ( на якому відбулась подія )
+ * Event.currentTarget ( на якому знаходиться лістенер )
+ * параметри AddEventListeners(event, callback, options, capture)
  */
 
-// const mainAction = document.querySelector('.js-main-action');
-// const subAction = document.querySelector('.js-sub-action');
-// const image = document.querySelector('.image');
+// const section = document.querySelector('.section');
+// // const div = document.querySelector('.div');
+// // const p = document.querySelector('.description');
+// const button = document.querySelector('.action');
 
-// const handler = event => {
-//   image.src = `https://picsum.photos/id/${Math.floor(
-//     Math.random() * 1000
-//   )}/200/300`;
+// const eventHandler = function (event) {
+//   event.stopPropagation();
+//   // console.dir(event.currentTarget);
+//   // console.dir(event.target);
+//   console.log(event.currentTarget.nodeName);
 // };
 
-// const deleteLisenerHandler = event => {
-//   if (!mainAction.disabled) {
-//     mainAction.removeEventListener('click', handler);
-//     mainAction.classList.add('disabled');
-//     mainAction.disabled = true;
-//   } else {
-//     mainAction.addEventListener('click', handler);
-//     mainAction.classList.remove('disabled');
-//     mainAction.disabled = false;
+// const eventHandler = function (event) {
+//   if (event.target.nodeName !== 'BUTTON') {
+//     console.log('We take section');
 //   }
 // };
 
-// subAction.addEventListener('click', deleteLisenerHandler);
-// mainAction.addEventListener('click', handler);
-
-/**
- * ================ Example 2 ==================
- * Розглянути обьект Event. Як отримати доступ. Що за властивосты доступні.
- */
-
-// const image = document.querySelector('.image');
-// // const handler = event => {};
-
-// // mainAction.addEventListener('click', handler);
-
-// // callback функції для слухачів. Іменування:
-// // handle[Назва дії]
-// // [Назва дії]handler
-// // on[Назва дії]
-// // const handleMainAction = ( ) => {}
-
-// window.addEventListener('scroll', e => {
-//   console.log(e);
-// });
-// image.addEventListener('click', e => {
-//   console.log(e);
-// });
-/**
- *  ================ Example 3 ==================
- * Створення слухачів для подій:
- * click, change, input, submit, focus, blur
- *
- * Необхідно використовуючи preventDefault,
- * stopPropogation прибрати дефолтну поведінку форми.
- *
- * Написати валідатор для форми.
- */
-
-// const inputName = document.querySelector('#name');
-// const select = document.querySelector('#select');
-// const acionButton = document.querySelector('.js-form-action');
-// const form = document.querySelector('.form');
-// // input.addEventListener('focus', event => {
-// //   console.log(event.type);
-// // });
-// // input.addEventListener('blur', event => {
-// //   console.log(event.type);
-// // });
-
-// // select.addEventListener('input', event => {
-// //   console.log(event.target.value);
-// // });
-// // select.addEventListener('change', event => {
-// //   console.log(event);
-// // });
-
-// form.addEventListener('submit', event => {
-//   console.log(event);
-//   event.preventDefault();
-// });
-
-// const inputName = document.querySelector('#name');
-// const inputEmail = document.querySelector('#email');
-// const select = document.querySelector('#select');
-// const form = document.querySelector('.form');
-
-// const validation = function () {
-//   let statusName = inputValidation(inputName);
-//   let statusEmail = inputValidation(inputEmail);
-//   let statusSelect = selectValidation(select);
-//   if (statusName && statusEmail && statusSelect) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// };
-
-// const inputValidation = target => {
-//   if (target.value && target.value.length > 2) {
-//     target.parentNode.classList.remove('unvalid');
-//     return true;
-//   } else {
-//     target.parentNode.classList.add('unvalid');
-//     return false;
-//   }
-// };
-
-// const selectValidation = target => {
-//   if (target.value && Number(target.value) > 0) {
-//     target.parentNode.classList.remove('unvalid');
-//     return true;
-//   } else {
-//     target.parentNode.classList.add('unvalid');
-//     return false;
-//   }
-// };
-
-// inputName.addEventListener('input', event => inputValidation(event.target));
-// inputEmail.addEventListener('input', event => inputValidation(event.target));
-// select.addEventListener('change', event => selectValidation(event.target));
-// form.addEventListener('submit', event => {
-//   event.preventDefault();
-//   console.log(validation());
-// });
-
-/**
- *  ================ Example 4 ==================
- * Створення слухачів для подій:
- * keydown, keyup, keypress нажимання клавіатури.
- *
- * Написати модальне вікно, яке буде закриватись по кліку на оверлей
- * на кнопку закрити, або клавіша "ESC".
- */
-
-// // const img = document.querySelector('.image');
-// const body = document.querySelector('body');
-// // // const document = document;
-
-// document.addEventListener('keypress', e => {
-//   console.log(e);
-//   //   if (e.code === 'Tab') {
-//   //     alert('some body was told me');
-//   //   }
-// });
-// const modal = document.querySelector('.modal');
-// const mainAction = document.querySelector('.js-main-action');
-// const modalOverflow = document.querySelector('.overflow');
-// const closeAction = document.querySelector('.js-close-modal');
-// const body = document.querySelector('body');
-
-// mainAction.addEventListener('click', () => {
-//   modal.classList.remove('hidden');
-//   openModal();
-// });
-
-// const closeModalClickHandler = event => {
+// const eventHandler1 = function (event) {
 //   if (event.target === event.currentTarget) {
-//     modal.classList.add('hidden');
+//     console.log('We take button');
 //   }
-//   closeModal();
-// };
-// const closeModalEscapeHandler = event => {
-//   modal.classList.add('hidden');
-//   closeModal();
 // };
 
-// const openModal = function () {
-//   closeAction.addEventListener('click', closeModalClickHandler);
-//   body.addEventListener('keydown', closeModalEscapeHandler);
-//   modalOverflow.addEventListener('click', closeModalClickHandler);
+// section.addEventListener('click', eventHandler1);
+// // div.addEventListener('click', eventHandler);
+// // p.addEventListener('click', eventHandler);
+// button.addEventListener('click', eventHandler1);
+
+/*
+ * параметри addEventListener(event, callback, options, useCapture)
+ *
+ */
+
+//pussive
+// const form = document.querySelector('.form');
+// const eventHandler = function (event) {
+//   event.preventDefault();
+//   console.log(event);
 // };
 
-// const closeModal = function () {
-//   closeAction.removeEventListener('click', closeModalClickHandler);
-//   modalOverflow.removeEventListener('click', closeModalClickHandler);
-//   body.removeEventListener('keydown', closeModalEscapeHandler);
+// form.addEventListener(
+//   'submit',
+//   eventHandler,
+//   {
+//     // capture: true,
+//     // once: true,
+//     passive: true,
+//   },
+//   true
+// );
+
+// const section = document.querySelector('.section');
+// const div = document.querySelector('.div');
+// const p = document.querySelector('.description');
+// const button = document.querySelector('.action');
+
+// const eventHandler = function (event) {
+//   console.log(event.currentTarget.nodeName);
 // };
+
+// section.addEventListener('click', eventHandler, {
+//   capture: true,
+//   // once: true,
+//   //   passive: true,
+// });
+// div.addEventListener('click', eventHandler, {
+//   capture: true,
+//   // once: true,
+//   //   passive: true,
+// });
+// p.addEventListener('click', eventHandler, {
+//   capture: true,
+//   // once: true,
+//   //   passive: true,
+// });
+// button.addEventListener('click', eventHandler, {
+//   capture: true,
+//   // once: true,
+//   //   passive: true,
+// });
+
+/**
+ * ================ DATA-ATRIBUTES ==================
+ * Треба розглянути data-atribues
+ */
+
+// const calendar = document.querySelector('[data-index="calendar"]');
+// console.log(calendar.dataset.index);
+
+// calendar.dataset.some = 'anyValue';
+// console.dir(calendar);
+
+/**
+ *  ================ Example 2 ==================
+ * Делегування подій
+ * Написати генерацію календаря.
+ * Написати делегування подій для календаря, таким чином, щом при клікі на день, він позначався як віделиний.
+ * Якщо ми будему клікати на день тиждня, то будуть виділятись всі дні цього тижня.
+ */
+
+const calendar = document.querySelector('.calendar');
+
+const makeCalendarObjects = function () {
+  const startOfMonth = moment().startOf('month');
+  const daysOfMonth = moment().daysInMonth();
+  const daysCount = daysOfMonth / 7 > 4 ? 35 : 28;
+  const weeks = [];
+  let week = [];
+  for (let i = 1; i <= daysCount; i += 1) {
+    if (startOfMonth.days() > i) {
+      week.push({ index: i, day: null });
+    } else {
+      week.push({
+        index: i,
+        day:
+          startOfMonth.month() === moment().month()
+            ? startOfMonth.date()
+            : null,
+      });
+      startOfMonth.add(1, 'd');
+    }
+    if (week.length === 7) {
+      weeks.push([...week]);
+      week = [];
+    }
+  }
+  return weeks;
+};
+
+const makeCalendarMarkUp = function (calendarObjects) {
+  let calendar = calendarObjects
+    .map(week => {
+      return `<tr>\n
+        ${week
+          .map(({ day }, index) => {
+            return `
+            <td
+              class="table-day"
+              data-day="${day ? day : ''}"
+              data-week="${index + 1}" >${day ? day : ''}
+            </td>\n`;
+          })
+          .join('')}
+      </tr>\n`;
+    })
+    .join('');
+  return `
+    <table>
+        <thead>
+          <tr>
+              <th class="table-day" data-week="1" data-main="true">Пнд</th>
+              <th class="table-day" data-week="2" data-main="true">Вт</th>
+              <th class="table-day" data-week="3" data-main="true">Ср</th>
+              <th class="table-day" data-week="4" data-main="true">Чт</th>
+              <th class="table-day" data-week="5" data-main="true">Пт</th>
+              <th class="table-day" data-week="6" data-main="true">Сбт</th>
+              <th class="table-day" data-week="7" data-main="true">Нд</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${calendar}
+        </tbody>
+    </table>
+    `;
+};
+
+const root = document.querySelector('.calendar');
+root.insertAdjacentHTML(
+  'afterbegin',
+  makeCalendarMarkUp(makeCalendarObjects())
+);
+const handler = event => {
+  const tds = document.querySelectorAll('[data-day]');
+  if (event.target.dataset.main) {
+    tds.forEach(item => {
+      if (item.dataset.week === event.target.dataset.week) {
+        if (item.dataset.day) {
+          item.classList.add('selected');
+        }
+      } else {
+        item.classList.remove('selected');
+      }
+    });
+  } else if (event.target.dataset.day) {
+    tds.forEach(item => {
+      if (item === event.target) {
+        item.classList.add('selected');
+      } else {
+        item.classList.remove('selected');
+      }
+    });
+  }
+  const customEvent = new Event('enter', {
+    type: 'enter',
+  });
+  calendar.dispatchEvent(customEvent);
+};
+
+root.addEventListener('click', handler);
+
+calendar.addEventListener('enter', e => {
+  console.log(e.type);
+});
