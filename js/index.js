@@ -1,213 +1,239 @@
 'use strict';
+
+// const root = document.querySelector('.root');
+// const content = [];
+
+// const multiplyText = (text, count) => {
+//   let result = '';
+//   for (let i = 0; i < count; i += 1) {
+//     result += text;
+//   }
+//   return result;
+// };
+
+// const makeImages = function (url) {
+//   const randomCount = Math.floor(Math.random() * 5);
+//   let result = '<div class="image__wrapper">';
+//   for (let i = 0; i < randomCount; i += 1) {
+//     result += `
+//       <img class="image animation" src="${url.replace(
+//         '[id]',
+//         Math.floor(Math.random() * 100)
+//       )}" data-image="true">
+//     `;
+//   }
+
+//   return result + '</div>';
+// };
+
+// for (let i = 0; i < 10; i += 1) {
+//   content.push(`
+//   <section class="section" style="background-color:
+//     #${Math.floor(Math.random() * 16777215).toString(16)}
+//   ">
+//     <h2 class="title">
+//       ${initData.title} ${i}
+//     </h2>
+//     <div class="wrapper">
+//       <p class="description">
+//         ${multiplyText(initData.description, 10)}
+//       </p>
+//       ${makeImages(initData.url)}
+//     </div>
+//   </section>
+//   `);
+// }
+
+// root.insertAdjacentHTML('afterbegin', content.join(''));
+
+// const scrollHandler = function () {
+//   console.log('HELLO');
+//   const screenTop = document.scrollingElement.scrollTop;
+//   const screenBottom = screenTop + innerHeight;
+//   const images = document.querySelectorAll('[data-image]');
+//   images.forEach((item, index) => {
+//     {
+//       const sectionBootom =
+//         item.parentNode.parentNode.parentNode.getBoundingClientRect().bottom;
+//       if (sectionBootom < screenBottom) {
+//         setTimeout(() => {
+//           item.classList.add('active-animation');
+//         }, 200 + index * 50);
+//       }
+//     }
+//   });
+// };
+
 /**
  *  ================ Example 1 ==================
- * Поширення подій. Спливання подій. stopPropogation
- * Event.target ( на якому відбулась подія )
- * Event.currentTarget ( на якому знаходиться лістенер )
- * параметри AddEventListeners(event, callback, options, capture)
- */
-
-// const section = document.querySelector('.section');
-// // const div = document.querySelector('.div');
-// // const p = document.querySelector('.description');
-// const button = document.querySelector('.action');
-
-// const eventHandler = function (event) {
-//   event.stopPropagation();
-//   // console.dir(event.currentTarget);
-//   // console.dir(event.target);
-//   console.log(event.currentTarget.nodeName);
-// };
-
-// const eventHandler = function (event) {
-//   if (event.target.nodeName !== 'BUTTON') {
-//     console.log('We take section');
-//   }
-// };
-
-// const eventHandler1 = function (event) {
-//   if (event.target === event.currentTarget) {
-//     console.log('We take button');
-//   }
-// };
-
-// section.addEventListener('click', eventHandler1);
-// // div.addEventListener('click', eventHandler);
-// // p.addEventListener('click', eventHandler);
-// button.addEventListener('click', eventHandler1);
-
-/*
- * параметри addEventListener(event, callback, options, useCapture)
+ * Для рутового елементу додати слушач події. Вивести в логи виклик scrollHandler,
+ * щоб показати яку кількість разів викликається наша функція.
  *
  */
-
-//pussive
-// const form = document.querySelector('.form');
-// const eventHandler = function (event) {
-//   event.preventDefault();
-//   console.log(event);
+// const scrollHandler = function () {
+//   console.log('HELLO');
 // };
 
-// form.addEventListener(
-//   'submit',
-//   eventHandler,
-//   {
-//     // capture: true,
-//     // once: true,
-//     passive: true,
-//   },
-//   true
-// );
-
-// const section = document.querySelector('.section');
-// const div = document.querySelector('.div');
-// const p = document.querySelector('.description');
-// const button = document.querySelector('.action');
-
-// const eventHandler = function (event) {
-//   console.log(event.currentTarget.nodeName);
-// };
-
-// section.addEventListener('click', eventHandler, {
-//   capture: true,
-//   // once: true,
-//   //   passive: true,
-// });
-// div.addEventListener('click', eventHandler, {
-//   capture: true,
-//   // once: true,
-//   //   passive: true,
-// });
-// p.addEventListener('click', eventHandler, {
-//   capture: true,
-//   // once: true,
-//   //   passive: true,
-// });
-// button.addEventListener('click', eventHandler, {
-//   capture: true,
-//   // once: true,
-//   //   passive: true,
-// });
-
-/**
- * ================ DATA-ATRIBUTES ==================
- * Треба розглянути data-atribues
- */
-
-// const calendar = document.querySelector('[data-index="calendar"]');
-// console.log(calendar.dataset.index);
-
-// calendar.dataset.some = 'anyValue';
-// console.dir(calendar);
+// root.addEventListener('scroll', _.throttle(scrollHandler, 1000));
 
 /**
  *  ================ Example 2 ==================
- * Делегування подій
- * Написати генерацію календаря.
- * Написати делегування подій для календаря, таким чином, щом при клікі на день, він позначався як віделиний.
- * Якщо ми будему клікати на день тиждня, то будуть виділятись всі дні цього тижня.
+ * Під'єднання lodash cdn
+ * Обернути наш викли scrollHandler до _.trottle
+ *
+ * Додати removeEventListener('scroll', _.trottle).
+ * Проблема з тим, що trottle поверне нам нову функцію.
+ * І для того щоб його видалити необхідно спочатку trottle записати до якоїсь змінної
  */
 
-const calendar = document.querySelector('.calendar');
+// const scrollHandler = function () {
+//   console.log('scrollHandler work');
 
-const makeCalendarObjects = function () {
-  const startOfMonth = moment().startOf('month');
-  const daysOfMonth = moment().daysInMonth();
-  const daysCount = daysOfMonth / 7 > 4 ? 35 : 28;
-  const weeks = [];
-  let week = [];
-  for (let i = 1; i <= daysCount; i += 1) {
-    if (startOfMonth.days() > i) {
-      week.push({ index: i, day: null });
-    } else {
-      week.push({
-        index: i,
-        day:
-          startOfMonth.month() === moment().month()
-            ? startOfMonth.date()
-            : null,
-      });
-      startOfMonth.add(1, 'd');
-    }
-    if (week.length === 7) {
-      weeks.push([...week]);
-      week = [];
-    }
-  }
-  return weeks;
-};
+//   const screenTop = document.scrollingElement.scrollTop;
+//   const screenBottom = screenTop + innerHeight;
+//   const images = document.querySelectorAll('[data-image]');
+//   images.forEach((item, index) => {
+//     {
+//       const sectionBootom =
+//         item.parentNode.parentNode.parentNode.getBoundingClientRect().bottom;
+//       if (sectionBootom < screenBottom) {
+//         setTimeout(() => {
+//           item.classList.add('active-animation');
+//         }, 200 + index * 50);
+//       }
+//     }
+//   });
 
-const makeCalendarMarkUp = function (calendarObjects) {
-  let calendar = calendarObjects
-    .map(week => {
-      return `<tr>\n
-        ${week
-          .map(({ day }, index) => {
-            return `
-            <td
-              class="table-day"
-              data-day="${day ? day : ''}"
-              data-week="${index + 1}" >${day ? day : ''}
-            </td>\n`;
-          })
-          .join('')}
-      </tr>\n`;
-    })
-    .join('');
-  return `
-    <table>
-        <thead>
-          <tr>
-              <th class="table-day" data-week="1" data-main="true">Пнд</th>
-              <th class="table-day" data-week="2" data-main="true">Вт</th>
-              <th class="table-day" data-week="3" data-main="true">Ср</th>
-              <th class="table-day" data-week="4" data-main="true">Чт</th>
-              <th class="table-day" data-week="5" data-main="true">Пт</th>
-              <th class="table-day" data-week="6" data-main="true">Сбт</th>
-              <th class="table-day" data-week="7" data-main="true">Нд</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${calendar}
-        </tbody>
-    </table>
-    `;
-};
+//   const trottleFunction = _.throttle(scrollHandler, 1000);
+// };
 
-const root = document.querySelector('.calendar');
-root.insertAdjacentHTML(
-  'afterbegin',
-  makeCalendarMarkUp(makeCalendarObjects())
-);
-const handler = event => {
-  const tds = document.querySelectorAll('[data-day]');
-  if (event.target.dataset.main) {
-    tds.forEach(item => {
-      if (item.dataset.week === event.target.dataset.week) {
-        if (item.dataset.day) {
-          item.classList.add('selected');
-        }
-      } else {
-        item.classList.remove('selected');
-      }
-    });
-  } else if (event.target.dataset.day) {
-    tds.forEach(item => {
-      if (item === event.target) {
-        item.classList.add('selected');
-      } else {
-        item.classList.remove('selected');
-      }
-    });
-  }
-  const customEvent = new Event('enter', {
-    type: 'enter',
-  });
-  calendar.dispatchEvent(customEvent);
-};
+// // root.addEventListener('scroll', _.throttle(scrollHandler, 1000)); //так робити не треба.
+// // root.removeEventListener('scroll', _.throttle(scrollHandler, 1000));
 
-root.addEventListener('click', handler);
+// const trottleFunction = _.throttle(scrollHandler, 1000);
+// root.addEventListener('scroll', trottleFunction);
 
-calendar.addEventListener('enter', e => {
-  console.log(e.type);
-});
+/**
+ *  ================ Example 3 ==================
+ * Під'єднання lodash cdn
+ * Вкористовуючи _.debounce знайти реалізувати пошук країни. Створити оброблення помилок.
+ *
+ */
+
+// const searchInputEl = document.querySelector('.js-search-input');
+// const outputError = document.querySelector('.js-output-error');
+// const countryCardEl = document.querySelector('.js-country-card');
+
+// const createCountryCard = ({ name, capital, population, area } = {}) => {
+//   return `<li class="country-card__item"><strong>Країна:</strong> ${name}</li>
+//      <li class="country-card__item"><strong>Столиця:</strong> ${capital}</li>
+//      <li class="country-card__item"><strong>Населення:</strong> ${population}</li>
+//      <li class="country-card__item"><strong>Площа:</strong> ${area}км<sup>2</sup></li>`;
+// };
+
+// const onSearchElInput = event => {
+//   const searchQuery = event.target.value.trim();
+//   console.log(searchQuery);
+//   if (!searchQuery) {
+//     outputError.innerHTML = '';
+//     countryCardEl.innerHTML = '';
+//     return;
+//   }
+//   const country = countries.find(el => {
+//     return el.name.toLowerCase() === searchQuery.toLowerCase();
+//   });
+//   if (!country) {
+//     outputError.textContent = 'Такої країни не знайдено';
+//     countryCardEl.innerHTML = '';
+//     return;
+//   }
+//   countryCardEl.innerHTML = createCountryCard(country);
+//   outputError.innerHTML = '';
+//   console.log(country);
+// };
+
+// searchInputEl.addEventListener('input', _.debounce(onSearchElInput, 2000));
+
+/**
+ *  ================ Example 3 ==================
+ * Image lazyloading
+ */
+
+// const gallery = document.querySelector('.gallery');
+// const banner = document.querySelector('.banner__img');
+
+// const makeMarkUp = function () {
+//   return images
+//     .map(item => {
+//       return `
+//     <li class="gallery__item">
+//       <a href="#" class="gallery__link">
+//         <img
+//           src="${item.url}"
+//           data-banner-url="${item.urlLarge}"
+//           alt="some image"
+//         />
+//       </a>
+//     </li>
+//     `;
+//     })
+//     .join('');
+// };
+
+// Зробити заміну оснровного фото по кліку на картинку галереї
+
+// Додати lezyloading img використовуючи тег loading="lazy"
+
+// const makeMarkUp = function () {
+//   return images
+//     .map(item => {
+//       return `
+//     <li class="gallery__item">
+//       <a href="#" class="gallery__link">
+//         <img
+//           src="${item.url}"
+//           data-banner-url="${item.urlLarge}"
+//           alt="some image"
+//           loading="lazy"
+//           height="300"
+//         />
+//       </a>
+//     </li>
+//     `;
+//     })
+//     .join('');
+// };
+
+// Додати lezyloading img використовуючи тег lazysizes
+
+// const makeMarkUp = function () {
+//   return images
+//     .map(item => {
+//       return `
+//     <li class="gallery__item">
+//       <a href="#" class="gallery__link">
+//         <img
+//           data-src="${item.url}"
+//           data-banner-url="${item.urlLarge}"
+//           alt="some image"
+//           class="lazyload"
+//         />
+//       </a>
+//     </li>
+//     `;
+//     })
+//     .join('');
+// };
+
+// const initGallery = function () {
+//   banner.src = images[0].urlLarge;
+//   gallery.insertAdjacentHTML('afterbegin', makeMarkUp());
+// };
+// initGallery();
+
+// const imageCheckHandler = event => {
+//   event.preventDefault();
+//   banner.src = event.target.dataset.bannerUrl;
+// };
+
+// gallery.addEventListener('click', imageCheckHandler);

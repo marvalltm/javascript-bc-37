@@ -8,32 +8,42 @@
     <title>Document</title>
   </head>
   <body>
-    <section class="section">
-      <span class="text">section</span>
-      <div class="div">
-        <span class="text">div</span>
-        <p class="description">
-          <span class="text">description</span>
-          <button class="action">Action</button>
-        </p>
+    <!-- <article class="root"></article> -->
+
+    <!-- <div class="aricle__wrapper">
+      <div class="container">
+        <input
+          type="search"
+          class="search-input js-search-input"
+          name="search-input"
+          placeholder="Введіть кріїну для пошуку."
+        />
+        <p class="output-error js-output-error"></p>
+        <ul class="country-card js-country-card list"></ul>
       </div>
+    </div> -->
+
+    <section class="gallery_wrapper">
+      <div class="banner">
+        <img src="" class="banner__img" />
+      </div>
+
+      <ul class="gallery"></ul>
     </section>
-    <form action="" class="form">
-      <label for="email" class="label"
-        ><input
-          type="text"
-          class="input"
-          id="email"
-          placeholder="Email" /></label
-      ><button type="submit" class="action">Send</button>
-    </form>
-    <div class="calendar" data-index="calendar"></div>
+
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"
-      integrity="sha512-O2Y8hD83PQtRf8vcr0N+yxwRtErIVaHJ4NOpojzq2yvUmhiJbQIT9OAYu27t+mVk814t+ongBVGx+YGylICVkQ=="
+      src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+      integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"
+      integrity="sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./js/initData.js"></script>
     <script src="./js/index.js"></script>
   </body>
 </html>
