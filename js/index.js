@@ -159,8 +159,8 @@
  * Image lazyloading
  */
 
-// const gallery = document.querySelector('.gallery');
-// const banner = document.querySelector('.banner__img');
+const gallery = document.querySelector('.gallery');
+const banner = document.querySelector('.banner__img');
 
 // const makeMarkUp = function () {
 //   return images
@@ -184,25 +184,26 @@
 
 // Додати lezyloading img використовуючи тег loading="lazy"
 
-// const makeMarkUp = function () {
-//   return images
-//     .map(item => {
-//       return `
-//     <li class="gallery__item">
-//       <a href="#" class="gallery__link">
-//         <img
-//           src="${item.url}"
-//           data-banner-url="${item.urlLarge}"
-//           alt="some image"
-//           loading="lazy"
-//           height="300"
-//         />
-//       </a>
-//     </li>
-//     `;
-//     })
-//     .join('');
-// };
+const makeMarkUp = function () {
+  return images
+    .map(item => {
+      return `
+    <li class="gallery__item">
+      <a href="#" class="gallery__link">
+        <img
+          src="${item.url}"
+          data-banner-url="${item.urlLarge}"
+          alt="some image"
+          loading="lazy"
+          height="500"
+          width="400"
+        />
+      </a>
+    </li>
+    `;
+    })
+    .join('');
+};
 
 // Додати lezyloading img використовуючи тег lazysizes
 
@@ -225,15 +226,15 @@
 //     .join('');
 // };
 
-// const initGallery = function () {
-//   banner.src = images[0].urlLarge;
-//   gallery.insertAdjacentHTML('afterbegin', makeMarkUp());
-// };
-// initGallery();
+const initGallery = function () {
+  banner.src = images[0].urlLarge;
+  gallery.insertAdjacentHTML('afterbegin', makeMarkUp());
+};
+initGallery();
 
-// const imageCheckHandler = event => {
-//   event.preventDefault();
-//   banner.src = event.target.dataset.bannerUrl;
-// };
+const imageCheckHandler = event => {
+  event.preventDefault();
+  banner.src = event.target.dataset.bannerUrl;
+};
 
-// gallery.addEventListener('click', imageCheckHandler);
+gallery.addEventListener('click', imageCheckHandler);
