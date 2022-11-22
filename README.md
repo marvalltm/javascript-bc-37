@@ -19,6 +19,8 @@
     - перейменування/переміщення (mv)
     - видаленя (rm)
     - дізнатись детальну інформацію про команду (man команда)
+    - CTRL + c - закрити процесс. 
+    - CTRL + z - звернути процесс.
 - Node.js і npm 
   - [nvm](https://github.com/coreybutler/nvm-windows#installation--upgrades)
   - встановлення

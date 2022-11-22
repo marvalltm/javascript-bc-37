@@ -1,0 +1,23 @@
+{
+  "name": "bootcamp_37",
+  "version": "1.0.0",
+  "description": "Модуль 8 _______ Заняття 15",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marvalltm/javascript-bc-37.git"
+  },
+  "author": "marvall",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marvalltm/javascript-bc-37/issues"
+  },
+  "homepage": "https://github.com/marvalltm/javascript-bc-37#readme",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4"
+  }
+}
