@@ -1,10 +1,11 @@
 {
   "name": "bootcamp_37",
   "version": "1.0.0",
-  "description": "Модуль 8 _______ Заняття 15",
-  "main": "index.js",
+  "description": "Модуль 9 _______ Заняття 16",
+  "source": "src/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel && parcel watch",
+    "build": "parcel build"
   },
   "repository": {
     "type": "git",
@@ -16,8 +17,15 @@
     "url": "https://github.com/marvalltm/javascript-bc-37/issues"
   },
   "homepage": "https://github.com/marvalltm/javascript-bc-37#readme",
+  "devDependencies": {
+    "parcel": "^2.8.0",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "posthtml-doctype": "^1.1.1",
+    "posthtml-include": "^1.7.4"
+  },
+  "browserslist": "last 2 versions, not dead",
   "dependencies": {
-    "lodash": "^4.17.21",
+    "@parcel/transformer-sass": "^2.8.0",
     "moment": "^2.29.4"
   }
 }

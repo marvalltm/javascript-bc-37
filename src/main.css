@@ -1,0 +1,243 @@
+header {
+  display: flex;
+  height: 70px;
+  border-bottom: 1px solid rgb(132, 132, 132);
+  box-shadow: 1px 1px 20px black;
+  align-items: center;
+}
+.navigation {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  height: 100%;
+}
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+.list__item {
+  width: 120px;
+  font-size: 20px;
+  font-weight: 700;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.theme {
+  border: 3px solid rgb(132, 132, 132);
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 30px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid rgb(132, 132, 132);
+  box-shadow: 0px -5px 20px black;
+  align-items: center;
+}
+.description {
+  width: 600px;
+  padding: 20px;
+}
+.contact__list {
+  display: block;
+  display: flex;
+  flex-direction: column;
+}
+.contact__item:not(:last-child) {
+  margin-bottom: 10px;
+}
+.conact__title {
+  font-weight: 700;
+  font-size: 18px;
+}
+main {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.form__label {
+  padding: 10px 20px;
+  border: 1px solid rgb(132, 132, 132);
+  border-radius: 20px;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 20px black;
+}
+
+.form__input {
+  border: 0;
+  outline: none;
+  background-color: inherit;
+}
+
+.action {
+  padding: 10px 20px;
+  width: 120px;
+  border-radius: 20px;
+  background-color: inherit;
+  outline: none;
+  border: 1px solid rgb(132, 132, 132);
+  box-shadow: 1px 1px 20px black;
+  align-self: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* =================================================== */
+
+.light header {
+  background-color: rgb(217, 227, 232);
+}
+.light .list__item {
+  color: rgb(233, 140, 25);
+  text-shadow: 1px 1px 2px black;
+}
+.light .list__item:hover {
+  background-color: rgb(196, 205, 210);
+}
+.light .theme {
+  background-color: rgb(55, 64, 118);
+  color: rgb(255, 140, 0);
+  text-shadow: 1px 1px 2px rgb(192, 183, 183);
+  border: 1px solid rgb(26, 69, 90);
+}
+.light .theme:hover {
+  background-color: rgb(107, 69, 139);
+}
+.light footer {
+  background-color: rgb(217, 227, 232);
+}
+.light .form__label {
+  background-color: rgb(217, 227, 232);
+}
+.light .action {
+  background-color: rgb(55, 64, 118);
+  color: rgb(255, 140, 0);
+  text-shadow: 1px 1px 2px rgb(192, 183, 183);
+  border: 1px solid rgb(26, 69, 90);
+}
+.light .action:hover {
+  background-color: rgb(107, 69, 139);
+}
+.dark header {
+  background-color: rgb(33, 31, 42);
+}
+.dark .list__item {
+  color: rgb(200, 181, 158);
+  text-shadow: 1px 1px 2px rgb(152, 137, 137);
+}
+.dark .list__item:hover {
+  background-color: rgb(83, 78, 101);
+}
+
+.dark .theme {
+  background-color: rgb(189, 189, 192);
+  color: rgb(77, 72, 65);
+  text-shadow: 1px 1px 2px rgb(152, 137, 137);
+  border: 1px solid rgb(113, 124, 129);
+}
+.dark .theme:hover {
+  background-color: rgb(195, 195, 217);
+}
+.dark footer {
+  background-color: rgb(33, 31, 42);
+}
+.dark .form__label {
+  background-color: rgb(33, 31, 42);
+}
+.dark .form__input {
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 2px rgb(152, 137, 137);
+}
+.dark .action {
+  background-color: rgb(189, 189, 192);
+  color: rgb(77, 72, 65);
+  text-shadow: 1px 1px 2px rgb(152, 137, 137);
+  border: 1px solid rgb(113, 124, 129);
+}
+.dark .action:hover {
+  background-color: rgb(217, 217, 223);
+}
+.dark .description {
+  color: rgb(200, 181, 158);
+  text-shadow: 1px 1px 2px rgb(152, 137, 137);
+}
+.dark .conact__title {
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 2px rgb(152, 137, 137);
+}
+.dark .contact__item {
+  color: rgb(200, 181, 158);
+  text-shadow: 1px 1px 2px rgb(152, 137, 137);
+}
+/* ======================================================= */
+.sales{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.overflow {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(20, 19, 19, 0.361);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content{
+  width: 500px;
+  height: 300px;
+  background-color: rgb(236, 236, 236);
+  box-shadow: 1px 2px 25px black;
+  border-radius: 20px;
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.message{
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.main {
+  color: rgb(219, 50, 50);
+  font-size: 70px;
+}
+
+.time {
+  font-size: 50px;
+}
