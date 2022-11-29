@@ -3,11 +3,57 @@
  * Додати функціонал вибору теми на сайті. Здерегти його до localStorage
  */
 
+// const body = document.querySelector('body')
+// const changeTheme = document.querySelector('.theme')
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const theme = localStorage.getItem('theme')
+//     body.className = theme;
+// })
+
+// const saveTheme = function (theme) {
+//     localStorage.setItem('theme', theme)
+// }
+
+// const changeThemeHandler = function () {
+//     const theme = body.className === 'dark' ? 'light' : 'dark'
+//     body.className = theme;
+//     saveTheme(theme)
+// }
+
+// changeTheme.addEventListener('click', changeThemeHandler)
+
 /**
  * Task 2
  * Обробити данні форми. Зберігати введені данні до localStorage
  * в один ключ userData. Збирати данні до одного обьекту.
  */
+// const userData = {
+//     name: null,
+//     email: null,
+//     phone: null, 
+// }
+// const name = document.querySelector("#name")
+// const email = document.querySelector("#email")
+// const phone = document.querySelector("#phone")
+// const form = document.querySelector(".form")
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const data = JSON.parse(localStorage.getItem('userData'))
+
+//     for (const key in data) {
+//         if (data[key]) {
+//             document.querySelector(`#${key}`).value = data[key];
+//             userData[key] = data[key];
+//         }
+//     }
+// })
+
+// form.addEventListener('change', (e) => {
+//     userData[e.target.id] = e.target.value;
+//     localStorage.setItem("userData", JSON.stringify(userData))
+// })
+
 
 // ============================== async ================================================
 
@@ -16,6 +62,29 @@
  * setTimeout(), setInterval() Розібрати,
  * що це за механізми. як працюють, як видалити інтервал.
  */
+
+// let intervarId = null;
+// let count = 0;
+// const callback = () => {
+//     console.log("OUR CALLBACK", intervarId)
+//     count += 1;
+//     if (count === 10) {
+//         clearInterval(intervarId)
+//     }
+// }
+// const delay = 1000
+// // setTimeout(callback, delay)
+
+// const button = document.querySelector('.action')
+// const handler = function () {
+//     if (intervarId) {
+//         clearInterval(intervarId)
+//     }
+//    intervarId = setInterval(callback, delay)
+// }
+    
+// button.addEventListener('click', handler)
+// const intervarId = setInterval(callback, delay)
 
 /**
  * Example 2
@@ -27,7 +96,7 @@
 //     console.log("It first timeout")
 // }, 10)
 
-// for (let i = 0; i < 10000; i += 1){
+// for (let i = 0; i < 1000; i += 1){
 //     console.log("our index in for: ", i)
 // }
 
@@ -45,7 +114,7 @@
 //     console.log("interval work")
 // }, 1000)
 
-// //інструкція яка викликає помилку.
+// // //інструкція яка викликає помилку.
 // number = number + 1
 
 /**
@@ -69,8 +138,8 @@
 // 1. Інсталяція момент як иодулю.
 
 // 2. Імпорт момент як иодулю.
-// import moment from 'moment';
-
+import moment from 'moment';
+// console.log(moment())
 // 3. Базові конструкції.
 
 // const time = moment()
@@ -123,31 +192,34 @@
 
 // format https://momentjs.com/docs/#/displaying/format/
 
-// moment().format();                                // "2014-09-08T08:02:17-05:00" (ISO 8601, no fractional seconds)
-// moment().format("dddd, MMMM Do YYYY, h:mm:ss a"); // "Sunday, February 14th 2010, 3:25:50 pm"
-// moment().format("ddd, hA");                       // "Sun, 3PM"
-// moment().format("[Today is] dddd");               // "Today is Sunday"
-// moment('gibberish').format('YYYY MM DD');
+// const time = moment().format();                                // "2014-09-08T08:02:17-05:00" (ISO 8601, no fractional seconds)
+// const time = moment().format("dddd, MMMM Do YYYY, h:mm:ss a"); // "Sunday, February 14th 2010, 3:25:50 pm"
+// const time = moment().format("ddd, hA");                       // "Sun, 3PM"
+// const time = moment().format("[Today is] dddd");               // "Today is Sunday"
 
+// console.log(time)
 /**
  * TASK 1
  * Написати таймер для акції
  */
 
-// const root = document.querySelector('.time');
+const root = document.querySelector('.time');
 
-// function makeTimer(root) {
-//   const current = moment('10.10.2000 00:00:00');
-//   const toDate = current.clone().add(1, 'minutes');
-//   const interval = setInterval(() => {
-//     if (toDate.isSame(current)) {
-//       clearInterval(interval);
-//       root.textContent = 'Time is over';
-//     } else {
-//       root.textContent = toDate.format(' mm : ss');
-//       toDate.subtract(1, 'seconds');
-//     }
-//   }, 1000);
-// }
+function makeTimer(root) {
+    const current = moment('10.10.2000 00:00:00');
+  const toDate = current.clone().add(1, 'minutes');
 
-// makeTimer(root);
+    console.log(current.format("hh:mm:ss"))
+    console.log(toDate.format("hh:mm:ss"))
+  const interval = setInterval(() => {
+    if (toDate.isSame(current)) {
+      clearInterval(interval);
+      root.textContent = 'Time is over';
+    } else {
+      root.textContent = toDate.format(' mm : ss');
+      toDate.subtract(1, 'seconds');
+    }
+  }, 1000);
+}
+
+makeTimer(root);

@@ -258,6 +258,7 @@ main {
 }
 
 .time {
+  height: 50px;
   font-size: 50px;
 }
 
