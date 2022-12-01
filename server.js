@@ -6,11 +6,12 @@ const HOST = 'http://localhost';
 
 const app = express();
 app.use(express.json());
-app.use(
-  cors({
-    origin: 'http://localhost:1234',
-  })
-);
+app.use(cors())
+// app.use(
+//   cors({
+//     origin: 'http://localhost:1234',
+//   })
+// );
 
 const users = [
   { id: 123456, login: 'john@admin.com', rules: 'admin' },
@@ -20,7 +21,7 @@ const users = [
 ];
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send({text: 'Hello World!'});
   // res.send(users);
 });
 

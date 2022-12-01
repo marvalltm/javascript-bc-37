@@ -21,7 +21,7 @@ Example AdminPanel: https://adm.tools/domains/
     - BACKEND PART,
         + express (детально на занятті по CRUD)
     - FRONT PART.
-        + XMLHtpRequest
+        + XMLHttpRequest
         + fetch. Response Class, blob, text, json
         + headers (детально на занятті по CRUD)
         + network devtools    
