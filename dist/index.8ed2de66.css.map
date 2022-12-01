@@ -1,1 +1,0 @@
-{"mappings":"AAAA;;;;;AAKA;;;;AAIA","sources":["src/main.css"],"sourcesContent":[".table__item{\r\n    border: 1px solid gray;\r\n    padding: 2px 10px;\r\n}\r\n\r\n.red {\r\n    background-color: rgb(246, 79, 79);\r\n}\r\n\r\n.green {\r\n    background-color: rgb(47, 127, 47);\r\n}"],"names":[],"version":3,"file":"index.8ed2de66.css.map","sourceRoot":"../"}

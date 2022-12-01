@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"9fsCA":[function(require,module,exports) {
+})({"lX4BT":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = 1234;
+var HMR_PORT = null;
 var HMR_SECURE = false;
-var HMR_ENV_HASH = "05e4bc001b2748be";
-module.bundle.HMR_BUNDLE_ID = "f4b0135210e1fd87";
+var HMR_ENV_HASH = "d6ea1d42532a7575";
+module.bundle.HMR_BUNDLE_ID = "7055c94b59712999";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -531,99 +531,8 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"aEXsY":[function(require,module,exports) {
-// FRONT PART
-// XMLHttpRequest
-// const url = "http://localhost:3000"
-// const xhr = new XMLHttpRequest();
-// xhr.open('GET', url);
-// xhr.send();
-// xhr.addEventListener('load', () => {
-//   if (xhr.status !== 200) {
-//     console.log(xhr.status);
-//   } else {
-//     console.log(xhr.responseText);
-//   }
-// });
-// const url = "http://localhost:3000"
-// fetch(url)
-//     .then(response => {
-//         // console.log(response)
-//         return response.text()
-//     })
-//     .then(data => console.log(data))
-// fetch(url).then(response => response.json()).then(data => console.log(data))
-//axios
-// import axios from 'axios';
-// const url = 'http://localhost:3000';
-// axios
-//   .get(url)
-//   .then(({ data }) => console.log(data))
-//   .catch(err => console.log(err));
-/**
- *  BINANCE TASK 1
- *  Заброаты пары монеток, вивести поточный куст.
- *  Створити оновлення пар по інтервалу. Малювати стріточку ↓ залежно від курсу ↑
- */ const baseURL = "https://api.binance.com";
-const priceRoute = "/api/v3/ticker/price";
-const root = document.querySelector(".root");
-let lastData = [];
-let nextData = [];
-const filterPairs = (array, part)=>{
-    return array.filter((item)=>item.symbol.includes(part)).slice(0, 9);
-};
-const makeMarkup = (array)=>{
-    const rows = array.map((item, index)=>{
-        return `
-            <tr>
-                <td class="table__item">${item.symbol}</td>
-                <td class="table__item  ${item.status}">${item.price}</td>
-            </tr>
-        `;
-    }).join("");
-    return `
-    <table>
-        <thead>
-            <tr>
-                <th class="table__item">NAME</th>
-                <th class="table__item">PRICE</th>
-            </tr>
-        </thead>
-        <tbody>
-            ${rows}
-        </tbody>
-    </table>
-    `;
-};
-const renderPairs = (array)=>{
-    root.innerHTML = "";
-    root.insertAdjacentHTML("afterbegin", makeMarkup(array));
-};
-const makeCurrentPairsStatus = (lastArray, nextArray)=>{
-    return nextArray.map((item, index)=>{
-        return {
-            ...item,
-            status: item.price > lastArray[index].price ? "green" : "red"
-        };
-    });
-};
-const processBinanceData = (data)=>{
-    const filteredData = filterPairs(data, "USDT");
-    if (!lastData.length) lastData = filteredData;
-    else lastData = nextData;
-    nextData = filteredData;
-    renderPairs(makeCurrentPairsStatus(lastData, nextData));
-};
-const id = setInterval(()=>{
-    fetch(`${baseURL}${priceRoute}`).then((response)=>response.json()).then((data)=>processBinanceData(data));
-}, 5000);
-setTimeout(()=>{
-    clearInterval(id);
-}, 60000); /**
- *  BINANCE TASK 2
- *  Знайти найвигідніші пропозицій по парі монеток. Розрахувати приблизний профіт якщо купити і зразу продати монетку.
- */ 
+},{}],"4M6V8":[function(require,module,exports) {
 
-},{}]},["9fsCA","aEXsY"], "aEXsY", "parcelRequire14d2")
+},{}]},["lX4BT","4M6V8"], "4M6V8", "parcelRequire14d2")
 
-//# sourceMappingURL=index.10e1fd87.js.map
+//# sourceMappingURL=javascript-bc-37.59712999.js.map

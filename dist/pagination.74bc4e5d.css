@@ -1,0 +1,48 @@
+.posts-section {
+  padding: 100px 0;
+}
+
+.posts {
+  flex-wrap: wrap;
+  gap: 30px 5%;
+  margin-bottom: 40px;
+  display: flex;
+}
+
+.posts__item {
+  height: 340px;
+  flex-basis: 30%;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 0 0 10px #ccc;
+}
+
+.posts__title {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.posts__text {
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.load-more-btn {
+  min-width: 200px;
+  color: #fff;
+  cursor: pointer;
+  background-color: #34495e;
+  border: none;
+  border-radius: 6px;
+  margin: 0 auto;
+  padding: 14px 4px;
+  transition: background-color .25s linear;
+  display: block;
+}
+
+.load-more-btn:hover, .load-more-btn:focus {
+  background-color: #2c3e50;
+}
+
+/*# sourceMappingURL=pagination.74bc4e5d.css.map */
