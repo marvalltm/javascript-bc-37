@@ -18,7 +18,8 @@ const onSearchFormSubmit = event => {
   unsplashAPI
     .fetchPhotosByQuery()
     .then(data => {
-      console.log(data);
+      // console.log(data);
+      // console.dir(event.target)
 
       if (data.results.length === 0) {
         galleryEl.innerHTML = '';

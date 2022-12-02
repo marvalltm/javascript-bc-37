@@ -2,18 +2,14 @@
  *  BINANCE TASK 1
  *  Заброаты пары монеток, вивести поточный куст.
  *  Створити оновлення пар по інтервалу. Малювати стріточку ↓ залежно від курсу ↑
- */
-
-// const baseURL = 'https://api.binance.com';
+ */ // const baseURL = 'https://api.binance.com';
 // const priceRoute = '/api/v3/ticker/price';
 // const root = document.querySelector('.root');
 // let lastData = [];
 // let nextData = [];
-
 // const filterPairs = (array, part) => {
 //   return array.filter(item => item.symbol.includes(part)).slice(0, 9);
 // };
-
 // const makeMarkup = array => {
 //   const rows = array
 //     .map((item, index) => {
@@ -25,7 +21,6 @@
 //         `;
 //     })
 //     .join('');
-
 //   return `
 //     <table>
 //         <thead>
@@ -40,7 +35,6 @@
 //     </table>
 //     `;
 // };
-
 // const renderPairs = array => {
 //   root.innerHTML = '';
 //   root.insertAdjacentHTML('afterbegin', makeMarkup(array));
@@ -61,28 +55,22 @@
 //     lastData = nextData;
 //   }
 //   nextData = filteredData;
-
 //   renderPairs(makeCurrentPairsStatus(lastData, nextData));
 // };
-
 // const id = setInterval(() => {
 //   fetch(`${baseURL}${priceRoute}`)
 //     .then(response => response.json())
 //     .then(data => processBinanceData(data));
 // }, 5000);
-
 // setTimeout(() => {
 //   clearInterval(id);
 // }, 60000);
-
 /**
  *  BINANCE TASK 2
  *  Знайти найвигідніші пропозицій по парі монеток. Розрахувати приблизний профіт якщо купити і зразу продати монетку.
  *  Створити умовну пагінацію для пар з USDT
- */
-
-
-// fetch('http://localhost:3000')
+ */ // fetch('http://localhost:3000')
 //     .then(response => response.json())
 //     .then(data => console.log(data))
 
+//# sourceMappingURL=index.197e9c87.js.map

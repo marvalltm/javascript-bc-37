@@ -6,14 +6,24 @@ const HOST = 'http://localhost';
 
 const app = express();
 app.use(express.json());
-app.use(cors())
-// app.use(
-//   cors({
-//     origin: 'http://localhost:1234',
-//   })
-// );
+// app.use(cors())
+app.use(
+  cors({
+    origin: 'http://localhost:1234',
+  })
+);
 
 const users = [
+  { id: 123456, login: 'john@admin.com', rules: 'admin' },
+  { id: 122256, login: 'eric@admin.com', rules: 'user' },
+  { id: 123356, login: 'james@admin.com', rules: 'admin' },
+  { id: 124456, login: 'volly@admin.com', rules: 'user' },
+
+  { id: 123456, login: 'john@admin.com', rules: 'admin' },
+  { id: 122256, login: 'eric@admin.com', rules: 'user' },
+  { id: 123356, login: 'james@admin.com', rules: 'admin' },
+  { id: 124456, login: 'volly@admin.com', rules: 'user' },
+
   { id: 123456, login: 'john@admin.com', rules: 'admin' },
   { id: 122256, login: 'eric@admin.com', rules: 'user' },
   { id: 123356, login: 'james@admin.com', rules: 'admin' },
@@ -21,7 +31,9 @@ const users = [
 ];
 
 app.get('/', (req, res) => {
-  res.send({text: 'Hello World!'});
+  console.log(req.query)
+  console.log(req.params)
+  res.send({ text: "hi" });
   // res.send(users);
 });
 

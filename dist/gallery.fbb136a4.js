@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"7I9Iq":[function(require,module,exports) {
+})({"h0KWD":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = null;
+var HMR_PORT = 1234;
 var HMR_SECURE = false;
-var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "95800f756064589e";
+var HMR_ENV_HASH = "05e4bc001b2748be";
+module.bundle.HMR_BUNDLE_ID = "45f06937fbb136a4";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -531,61 +531,84 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"9j1Dd":[function(require,module,exports) {
-// https://jsonplaceholder.typicode.com/
+},{}],"c0oW4":[function(require,module,exports) {
+// https://unsplash.com/
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _jsonplaceholderApi = require("./jsonplaceholder-api");
-var _postsHbs = require("../templates/posts.hbs");
-var _postsHbsDefault = parcelHelpers.interopDefault(_postsHbs);
-const postsGalleryEl = document.querySelector(".js-posts");
+var _unsplashApi = require("./unsplash-api");
+var _galleryCardHbs = require("../templates/gallery-card.hbs");
+var _galleryCardHbsDefault = parcelHelpers.interopDefault(_galleryCardHbs);
+const searchFormEl = document.querySelector(".js-search-form");
+const galleryEl = document.querySelector(".js-gallery");
 const loadMoreBtnEl = document.querySelector(".js-load-more");
-const jsonPlaceholderApi = new (0, _jsonplaceholderApi.JsonPlaceholderApi)();
-const renderPosts = ()=>{
-    jsonPlaceholderApi.fetchPosts().then((data)=>{
-        postsGalleryEl.innerHTML = (0, _postsHbsDefault.default)(data);
+const unsplashAPI = new (0, _unsplashApi.UnsplashAPI)();
+const onSearchFormSubmit = (event)=>{
+    event.preventDefault();
+    unsplashAPI.query = event.currentTarget.elements["user-search-query"].value;
+    unsplashAPI.page = 1;
+    unsplashAPI.fetchPhotosByQuery().then((data)=>{
+        // console.log(data);
+        // console.dir(event.target)
+        if (data.results.length === 0) {
+            galleryEl.innerHTML = "";
+            loadMoreBtnEl.classList.add("is-hidden");
+            event.target.reset();
+            return;
+        }
+        galleryEl.innerHTML = (0, _galleryCardHbsDefault.default)(data.results);
+        loadMoreBtnEl.classList.remove("is-hidden");
     }).catch((err)=>{
         console.log(err);
     });
 };
-renderPosts();
 const onLoadMoreBtnClick = (event)=>{
-    jsonPlaceholderApi.page += 1;
-    jsonPlaceholderApi.fetchPosts().then((data)=>{
-        postsGalleryEl.insertAdjacentHTML("beforeend", (0, _postsHbsDefault.default)(data));
+    unsplashAPI.page += 1;
+    unsplashAPI.fetchPhotosByQuery().then((data)=>{
+        if (unsplashAPI.page === data.total_pages) loadMoreBtnEl.classList.add("is-hidden");
+        galleryEl.insertAdjacentHTML("beforeend", (0, _galleryCardHbsDefault.default)(data.results));
     }).catch((err)=>{
         console.log(err);
     });
 };
+searchFormEl.addEventListener("submit", onSearchFormSubmit);
 loadMoreBtnEl.addEventListener("click", onLoadMoreBtnClick);
 
-},{"./jsonplaceholder-api":"kII8a","../templates/posts.hbs":"ck4JQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kII8a":[function(require,module,exports) {
+},{"./unsplash-api":"jkm0S","../templates/gallery-card.hbs":"9wxVw","@parcel/transformer-js/src/esmodule-helpers.js":"lD17j"}],"jkm0S":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "JsonPlaceholderApi", ()=>JsonPlaceholderApi);
-class JsonPlaceholderApi {
+parcelHelpers.export(exports, "UnsplashAPI", ()=>UnsplashAPI);
+class UnsplashAPI {
+    #BASE_URL = "https://api.unsplash.com";
+    #API_KEY = "_qTG6-PYsqqQghIiyqCV2T_m0kPrw6S64iJ18ECz_84";
     constructor(){
         this.page = 1;
+        this.query = null;
     }
-    fetchPosts() {
-        return fetch(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${this.page}`).then((response)=>{
+    fetchPhotosByQuery() {
+        const searchParams = new URLSearchParams({
+            query: this.query,
+            page: this.page,
+            per_page: 20,
+            client_id: this.#API_KEY
+        });
+        return fetch(`${this.#BASE_URL}/search/photos?${searchParams}`).then((response)=>{
             if (!response.ok) throw new Error(response.status);
             return response.json();
         });
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ck4JQ":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"lD17j"}],"9wxVw":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 const templateFunction = (0, _handlebarsDefault.default).template({
     "1": function(container, depth0, helpers, partials, data) {
-        var alias1 = container.lambda, alias2 = container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        var stack1, alias1 = container.lambda, alias2 = container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
             if (Object.prototype.hasOwnProperty.call(parent, propertyName)) return parent[propertyName];
             return undefined;
         };
-        return "  <li class='posts__item'>\r\n    <h2 class='posts__title'>" + alias2(alias1(depth0 != null ? lookupProperty(depth0, "title") : depth0, depth0)) + "</h2>\r\n    <p class='posts__text'>" + alias2(alias1(depth0 != null ? lookupProperty(depth0, "body") : depth0, depth0)) + "</p>\r\n    <p class='posts__id'>id: " + alias2(alias1(depth0 != null ? lookupProperty(depth0, "id") : depth0, depth0)) + "</p>\r\n  </li>\r\n";
+        return "  <li class='gallery__item'>\r\n    <img\r\n      src='" + alias2(alias1((stack1 = depth0 != null ? lookupProperty(depth0, "urls") : depth0) != null ? lookupProperty(stack1, "small") : stack1, depth0)) + "'\r\n      alt='" + alias2(alias1(depth0 != null ? lookupProperty(depth0, "alt_description") : depth0, depth0)) + "'\r\n      class='gallery-img'\r\n    />\r\n  </li>\r\n";
     },
     "compiler": [
         8,
@@ -608,7 +631,7 @@ const templateFunction = (0, _handlebarsDefault.default).template({
                     "column": 0
                 },
                 "end": {
-                    "line": 7,
+                    "line": 9,
                     "column": 9
                 }
             }
@@ -618,6 +641,6 @@ const templateFunction = (0, _handlebarsDefault.default).template({
 });
 exports.default = templateFunction;
 
-},{"handlebars":"i0QfX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["7I9Iq","9j1Dd"], "9j1Dd", "parcelRequire14d2")
+},{"handlebars":"gs63D","@parcel/transformer-js/src/esmodule-helpers.js":"lD17j"}]},["h0KWD","c0oW4"], "c0oW4", "parcelRequire14d2")
 
-//# sourceMappingURL=pagination.6064589e.js.map
+//# sourceMappingURL=gallery.fbb136a4.js.map
