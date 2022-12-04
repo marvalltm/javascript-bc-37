@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel && parcel watch",
     "build": "parcel build",
-    "serve": "nodemon server.js"
+    "serve": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
