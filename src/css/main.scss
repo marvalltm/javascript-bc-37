@@ -1,0 +1,100 @@
+/*  INFINITY - SCROLL  */
+body {
+  font-family: sans-serif;
+  line-height: 1.4;
+  padding: 20px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+ul,
+li {
+  list-style: none;
+}
+.container {
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.photo-item {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+/*  TELL - INPUT  */
+@import '../../node_modules/intl-tel-input/build/css/intlTelInput.css';
+
+.iti__flag {
+  background-image: url('../../node_modules/intl-tel-input/build/img/flags.png');
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .iti__flag {
+    background-image: url('../../node_modules/intl-tel-input/build/img/flags@2x.png');
+  }
+}
+
+.iti__country-list {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.iti__country-list::-webkit-scrollbar {
+  width: 4px;
+  padding: 10px;
+}
+
+/* Track */
+.iti__country-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.iti__country-list::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.iti__country-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.label {
+  width: 300px;
+  padding: 5px 20px;
+  margin-bottom: 10px;
+  border: 1px solid rgb(185, 185, 185);
+  border-radius: 20px;
+}
+.input {
+  outline: none;
+  border: none;
+  width: 100%;
+}
+
+.action {
+  padding: 5px 20px;
+  background-color: rgb(54, 54, 111);
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  color: rgb(222, 222, 222);
+}
+
+/*  SLIDER  */
+
+.image {
+  display: block;
+  box-sizing: border-box;
+  border: 2px solid gray;
+}
+
+@import './embla.scss';

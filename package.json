@@ -1,0 +1,38 @@
+{
+  "name": "bootcamp_37",
+  "version": "1.0.0",
+  "description": "Модуль 9 _______ Заняття 16",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel && parcel watch",
+    "build": "parcel build",
+    "serve": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marvalltm/javascript-bc-37.git"
+  },
+  "author": "marvall",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marvalltm/javascript-bc-37/issues"
+  },
+  "homepage": "https://github.com/marvalltm/javascript-bc-37#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.0",
+    "buffer": "^5.7.1",
+    "nodemon": "^2.0.20",
+    "parcel": "^2.8.0",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "parcel-transformer-hbs": "^1.0.4",
+    "posthtml-doctype": "^1.1.1",
+    "posthtml-include": "^1.7.4"
+  },
+  "browserslist": "last 2 versions, not dead",
+  "dependencies": {
+    "embla-carousel": "^7.0.5",
+    "embla-carousel-autoplay": "^7.0.5",
+    "infinite-scroll": "^4.0.1",
+    "intl-tel-input": "^17.0.19"
+  }
+}
