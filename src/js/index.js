@@ -1,88 +1,222 @@
-/**
- *  BINANCE TASK 1
- *  Заброаты пары монеток, вивести поточный куст.
- *  Створити оновлення пар по інтервалу. Малювати стріточку ↓ залежно від курсу ↑
- */
+import axios from 'axios';
+const root = document.querySelector('.list__methods');
+const BASE_URL = 'http://localhost:3000';
+let someID;
 
-// const baseURL = 'https://api.binance.com';
-// const priceRoute = '/api/v3/ticker/price';
-// const root = document.querySelector('.root');
-// let lastData = [];
-// let nextData = [];
-
-// const filterPairs = (array, part) => {
-//   return array.filter(item => item.symbol.includes(part)).slice(0, 9);
-// };
-
-// const makeMarkup = array => {
-//   const rows = array
-//     .map((item, index) => {
-//       return `
-//             <tr>
-//                 <td class="table__item">${item.symbol}</td>
-//                 <td class="table__item  ${item.status}">${item.price}</td>
-//             </tr>
-//         `;
+// const getAllUsers = function () {
+//   return fetch(`${BASE_URL}/users`)
+//     .then(response => {
+//       if (!response.ok) {
+//         throw new Error('NOT OK');
+//       }
+//       return response.json();
 //     })
-//     .join('');
-
-//   return `
-//     <table>
-//         <thead>
-//             <tr>
-//                 <th class="table__item">NAME</th>
-//                 <th class="table__item">PRICE</th>
-//             </tr>
-//         </thead>
-//         <tbody>
-//             ${rows}
-//         </tbody>
-//     </table>
-//     `;
+//     .then(({ data }) => {
+//       console.log('ALL USERS: ', data);
+//       someID = data[2].id;
+//     });
 // };
 
-// const renderPairs = array => {
-//   root.innerHTML = '';
-//   root.insertAdjacentHTML('afterbegin', makeMarkup(array));
-// };
-// const makeCurrentPairsStatus = (lastArray, nextArray) => {
-//   return nextArray.map((item, index) => {
-//     return {
-//       ...item,
-//       status: item.price > lastArray[index].price ? 'green' : 'red',
-//     };
-//   });
-// };
-// const processBinanceData = data => {
-//   const filteredData = filterPairs(data, 'USDT');
-//   if (!lastData.length) {
-//     lastData = filteredData;
+// const getOneUser = function () {
+//   if (someID) {
+//     return fetch(`${BASE_URL}/user/${someID}`)
+//       .then(response => {
+//         if (!response.ok) {
+//           throw new Error('NOT OK');
+//         }
+//         return response.json();
+//       })
+//       .then(({ data }) => console.log('one USER: ', data));
 //   } else {
-//     lastData = nextData;
+//     throw new Error('not set ID');
 //   }
-//   nextData = filteredData;
-
-//   renderPairs(makeCurrentPairsStatus(lastData, nextData));
 // };
 
-// const id = setInterval(() => {
-//   fetch(`${baseURL}${priceRoute}`)
-//     .then(response => response.json())
-//     .then(data => processBinanceData(data));
-// }, 5000);
+// const addUser = function () {
+//   return fetch(`${BASE_URL}/user`, {
+//     method: 'POST', // or 'PUT'
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({ login: 'wwwww@admin.com', rules: 'www' }),
+//   })
+//     .then(response => {
+//       if (!response.ok) {
+//         throw new Error('NOT OK');
+//       }
+//       return response.json();
+//     })
+//     .then(({ data, status }) =>
+//       console.log('status: ', status, 'data: ', data)
+//     );
+// };
 
-// setTimeout(() => {
-//   clearInterval(id);
-// }, 60000);
+// const updateUser = function () {
+//   if (someID) {
+//     return fetch(`${BASE_URL}/user/${someID}`, {
+//       method: 'PUT', // or 'PUT'
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({ login: 'wdddwwww@admin.com', rules: 'ddd' }),
+//     })
+//       .then(response => {
+//         if (!response.ok) {
+//           throw new Error('NOT OK');
+//         }
+//         return response.json();
+//       })
+//       .then(({ data, status }) =>
+//         console.log('status: ', status, 'data: ', data)
+//       );
+//   } else {
+//     throw new Error('not set ID');
+//   }
+// };
 
-/**
- *  BINANCE TASK 2
- *  Знайти найвигідніші пропозицій по парі монеток. Розрахувати приблизний профіт якщо купити і зразу продати монетку.
- *  Створити умовну пагінацію для пар з USDT
- */
+// const patchUser = function () {
+//   if (someID) {
+//     return fetch(`${BASE_URL}/user/${someID}`, {
+//       method: 'PATCH', // or 'PUT'
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({ login: '11111www@admin.com', rules: '111' }),
+//     })
+//       .then(response => {
+//         if (!response.ok) {
+//           throw new Error('NOT OK');
+//         }
+//         return response.json();
+//       })
+//       .then(({ data, status }) =>
+//         console.log('status: ', status, 'data: ', data)
+//       );
+//   } else {
+//     throw new Error('not set ID');
+//   }
+// };
 
+// const deleteUser = function () {
+//   return fetch(`${BASE_URL}/user/${someID}`, {
+//     method: 'DELETE',
+//   })
+//     .then(response => {
+//       if (!response.ok) {
+//         throw new Error('NOT OK');
+//       }
+//       return response.json();
+//     })
+//     .then(({ data, status }) =>
+//       console.log('status: ', status, 'data: ', data)
+//     )
+// };
 
-// fetch('http://localhost:3000')
-//     .then(response => response.json())
-//     .then(data => console.log(data))
+// axios(`${BASE_URL}/users`).then(({ data }) => console.log(data));
 
+// axios({
+//   method: 'GET',
+//   url: `${BASE_URL}/users`,
+// }).then(({ data }) => console.log(data));
+
+// axios.get(`${BASE_URL}/users`).then(({ data }) => console.log(data));
+
+const userAPI = axios.create({
+  baseURL: 'http://localhost:3000',
+  headers: { 'Content-Type': 'application/json' },
+});
+
+const getAllUsers = function () {
+  return userAPI(`/users`).then(({ data }) => {
+    someID = data.data[2].id;
+    console.log(data.data);
+  });
+};
+
+const getOneUser = function () {
+  if (someID) {
+    return userAPI(`/user/${someID}`).then(({ data }) =>
+      console.log(data.data)
+    );
+  } else {
+    throw new Error('not set ID');
+  }
+};
+
+const addUser = function () {
+  return userAPI
+    .post(`/user`, {
+      login: 'wwwww@admin.com',
+      rules: 'www',
+    })
+    .then(({ data }) => console.log(data));
+};
+
+const updateUser = function () {
+  if (someID) {
+    return userAPI
+      .put(`/user/${someID}`, {
+        login: 'wwwww@admin.com',
+        rules: 'www',
+      })
+      .then(({ data }) => console.log(data));
+  } else {
+    throw new Error('not set ID');
+  }
+};
+
+const patchUser = function () {
+  if (someID) {
+    return userAPI
+      .patch(`/user/${someID}`, {
+        login: 'wwssswww@admin.com',
+        rules: 'wsssww',
+      })
+      .then(({ data }) => console.log(data));
+  } else {
+    throw new Error('not set ID');
+  }
+};
+
+const deleteUser = function () {
+  if (someID) {
+    return userAPI
+      .delete(`/user/${someID}`)
+      .then(({ data }) => console.log(data));
+  } else {
+    throw new Error('not set ID');
+  }
+};
+
+const handleClick = function (e) {
+  const className = e.target.classList[1];
+  switch (className) {
+    case 'get__all': {
+      getAllUsers().catch(error => console.log(error));
+      break;
+    }
+    case 'get': {
+      getOneUser().catch(error => console.log(error));
+      break;
+    }
+    case 'post': {
+      addUser().catch(error => console.log(error));
+      break;
+    }
+    case 'put': {
+      updateUser().catch(error => console.log(error));
+      break;
+    }
+    case 'patch': {
+      patchUser().catch(error => console.log(error));
+      break;
+    }
+    case 'delete': {
+      deleteUser().catch(error => console.log(error));
+      break;
+    }
+  }
+};
+
+// ========================= LISTENER ================================
+root.addEventListener('click', handleClick);

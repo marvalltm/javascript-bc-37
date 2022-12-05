@@ -1,6 +1,7 @@
 const users = require('../data/users');
 
-const getUsers = async (request, response, next) => {
+const getUsers = (request, response, next) => {
+  //SELECT * FROM users
   try {
     response.status(200).send({ data: users });
   } catch (error) {
@@ -8,7 +9,8 @@ const getUsers = async (request, response, next) => {
   }
 };
 
-const getUser = async (request, response, next) => {
+const getUser = (request, response, next) => {
+  // SELECT * FROM users WHERE id = "id"
   try {
     const id = Number(request.params.id);
     const user = users.find(item => id === item.id);
@@ -22,8 +24,10 @@ const getUser = async (request, response, next) => {
   }
 };
 
-const addUser = async (request, response, next) => {
+const addUser = (request, response, next) => {
+  //INSERTS user TO users
   try {
+    console.log(request.body);
     const { login, rules } = request.body;
     if (login && rules) {
       const user = { id: Math.floor(Math.random() * 1000000), login, rules };
@@ -37,7 +41,7 @@ const addUser = async (request, response, next) => {
   }
 };
 
-const addOrUpdateUser = async (request, response, next) => {
+const addOrUpdateUser = (request, response, next) => {
   try {
     const id = Number(request.params.id);
     const { login, rules } = request.body;
@@ -60,7 +64,7 @@ const addOrUpdateUser = async (request, response, next) => {
   }
 };
 
-const updateUser = async (request, response, next) => {
+const updateUser = (request, response, next) => {
   try {
     const id = Number(request.params.id);
     const { login, rules } = request.body;
@@ -77,11 +81,10 @@ const updateUser = async (request, response, next) => {
   }
 };
 
-const deleteUser = async (request, response, next) => {
+const deleteUser = (request, response, next) => {
   try {
     const id = Number(request.params.id);
     const userIndex = users.findIndex(item => id === item.id);
-    console.log(id, userIndex);
     if (id && userIndex > -1) {
       const removed = users.splice(userIndex, 1);
       response.status(200).send({ status: 'deleted', data: removed });
