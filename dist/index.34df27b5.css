@@ -1,5 +1,4 @@
-.list__methods,
-.list__item {
+.list__methods, .list__item {
   list-style: none;
 }
 
@@ -9,26 +8,29 @@
 }
 
 .message {
+  margin-right: 20px;
   font-size: 20px;
   font-weight: 700;
-  margin-right: 20px;
 }
 
 .action {
   margin-left: auto;
 }
 
-.get__all,
-.get {
+.get__all, .get {
   color: green;
 }
+
 .post {
-  color: rgb(175, 175, 52);
+  color: #afaf34;
 }
-.put,
-.patch {
-  color: blue;
+
+.put, .patch {
+  color: #00f;
 }
+
 .delete {
   color: red;
 }
+
+/*# sourceMappingURL=index.34df27b5.css.map */
