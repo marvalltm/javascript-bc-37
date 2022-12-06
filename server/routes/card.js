@@ -3,7 +3,7 @@ const { getCard, addToCard, deleteFromCard } = require('../controllers/card');
 
 const router = express.Router();
 
-router.get('/', getCard);
+router.get('/all', getCard);
 router.post('/:id', addToCard);
 router.delete('/:id', deleteFromCard);
 

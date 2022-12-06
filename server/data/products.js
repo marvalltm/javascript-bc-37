@@ -44,7 +44,7 @@ const products = [
     category: 'tech',
   },
   {
-    id: 345124456,
+    id: 345444456,
     name: 'MacBook Pro 2017',
     price: 7000,
     description: `
@@ -55,7 +55,7 @@ const products = [
     category: 'tech',
   },
   {
-    id: 345124456,
+    id: 345124446,
     name: 'MacBook Pro 2021',
     price: 9000,
     description: `
@@ -66,7 +66,7 @@ const products = [
     category: 'tech',
   },
   {
-    id: 345124456,
+    id: 345124444,
     name: 'SmartPhone L 10',
     price: 1000,
     description: `
@@ -77,7 +77,7 @@ const products = [
     category: 'tech',
   },
   {
-    id: 345444456,
+    id: 34544556,
     name: 'IPad 2013',
     price: 2330,
     description: `

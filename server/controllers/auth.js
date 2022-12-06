@@ -12,6 +12,8 @@ const signin = async (request, response, next) => {
       ).toString(16);
       user.token = token;
       response.status(200).send({ data: token });
+    } else {
+      response.status(400).send('user not fount');
     }
   } catch (error) {
     response.status(400).send(error.message);

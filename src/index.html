@@ -7,30 +7,28 @@
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <ul class="list__methods">
+    <!-- <ul class="list__methods">
       <li class="list__item get__all">
         <span class="message">GET </span> all users
         <button class="action get__all">SEND</button>
       </li>
-      <li class="list__item get">
-        <span class="message">GET </span> one user
-        <button class="action get">SEND</button>
+    </ul> -->
+    <form action="" class="login">
+      <label for="login" class="label"
+        ><input id="login" type="text" class="input" /></label
+      ><label for="password" class="label"
+        ><input id="password" type="text" class="input" /></label
+      ><button type="submit">Send</button>
+    </form>
+    <ul class="list__methods">
+      <li class="list__item get__all">
+        <button class="action card">card</button>
       </li>
-      <li class="list__item post">
-        <span class="message">POST </span> add user
-        <button class="action post">SEND</button>
+      <li class="list__item get__all">
+        <button class="action product">product</button>
       </li>
-      <li class="list__item put">
-        <span class="message">PUT </span> update user
-        <button class="action put">SEND</button>
-      </li>
-      <li class="list__item patch">
-        <span class="message">PATCH </span> update user
-        <button class="action patch">SEND</button>
-      </li>
-      <li class="list__item delete">
-        <span class="message">DELETE </span> delete user
-        <button class="action delete">SEND</button>
+      <li class="list__item get__all">
+        <button class="action user">user</button>
       </li>
     </ul>
     <script type="module" src="./js/index.js"></script>

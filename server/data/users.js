@@ -8,9 +8,9 @@ const users = [
   },
   {
     id: 122256,
-    login: 'eric@admin.com',
+    login: '1',
     rules: 'user',
-    password: 'truePassword',
+    password: '1',
     token: null,
   },
   {
