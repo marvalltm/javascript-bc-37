@@ -1,0 +1,22 @@
+.ul__paginatoin_element{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.li__pagination_element{
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgb(107, 76, 76);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.li__pagination_element:hover{
+    background-color: rgb(192, 104, 104);
+}
+.li__pagination_element:not(:last-child){
+    margin-right: 10px;
+}
